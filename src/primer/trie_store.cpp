@@ -33,9 +33,13 @@ void TrieStore::Put(std::string_view key, T value) {
   write_lock_.lock();
   root_lock_.lock();
   auto root=root_;
+<<<<<<< HEAD
   root_lock_.unlock();
   root=root.Put(key,std::move(value));
   root_lock_.lock();
+=======
+  root=root.Put(key,std::move(value));
+>>>>>>> b7414f4a8509306b36f7182ec64c997f77754a50
   root_=root;
   root_lock_.unlock();
   write_lock_.unlock();
@@ -48,9 +52,13 @@ void TrieStore::Remove(std::string_view key) {
   write_lock_.lock();
   root_lock_.lock();
   auto root=root_;
+<<<<<<< HEAD
   root_lock_.unlock();
   root=root.Remove(key);
   root_lock_.lock();
+=======
+  root=root.Remove(key);
+>>>>>>> b7414f4a8509306b36f7182ec64c997f77754a50
   root_=root;
   root_lock_.unlock();
   write_lock_.unlock();
