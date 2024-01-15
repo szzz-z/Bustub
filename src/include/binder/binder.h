@@ -126,8 +126,8 @@ class Binder {
 
   auto BindRangeSubselect(duckdb_libpgquery::PGRangeSubselect *root) -> std::unique_ptr<BoundTableRef>;
 
-  auto BindSubquery(duckdb_libpgquery::PGSelectStmt *node, const std::string &alias)
-      -> std::unique_ptr<BoundSubqueryRef>;
+  auto BindSubquery(duckdb_libpgquery::PGSelectStmt *node,
+                    const std::string &alias) -> std::unique_ptr<BoundSubqueryRef>;
 
   auto BindSelectList(duckdb_libpgquery::PGList *list) -> std::vector<std::unique_ptr<BoundExpression>>;
 
@@ -167,17 +167,17 @@ class Binder {
 
   auto GetAllColumns(const BoundTableRef &scope) -> std::vector<std::unique_ptr<BoundExpression>>;
 
-  auto ResolveColumn(const BoundTableRef &scope, const std::vector<std::string> &col_name)
-      -> std::unique_ptr<BoundExpression>;
+  auto ResolveColumn(const BoundTableRef &scope,
+                     const std::vector<std::string> &col_name) -> std::unique_ptr<BoundExpression>;
 
-  auto ResolveColumnInternal(const BoundTableRef &table_ref, const std::vector<std::string> &col_name)
-      -> std::unique_ptr<BoundExpression>;
+  auto ResolveColumnInternal(const BoundTableRef &table_ref,
+                             const std::vector<std::string> &col_name) -> std::unique_ptr<BoundExpression>;
 
   auto ResolveColumnRefFromSelectList(const std::vector<std::vector<std::string>> &subquery_select_list,
                                       const std::vector<std::string> &col_name) -> std::unique_ptr<BoundColumnRef>;
 
-  auto ResolveColumnRefFromBaseTableRef(const BoundBaseTableRef &table_ref, const std::vector<std::string> &col_name)
-      -> std::unique_ptr<BoundColumnRef>;
+  auto ResolveColumnRefFromBaseTableRef(const BoundBaseTableRef &table_ref,
+                                        const std::vector<std::string> &col_name) -> std::unique_ptr<BoundColumnRef>;
 
   auto ResolveColumnRefFromSubqueryRef(const BoundSubqueryRef &subquery_ref, const std::string &alias,
                                        const std::vector<std::string> &col_name) -> std::unique_ptr<BoundColumnRef>;
