@@ -15,8 +15,8 @@
 namespace bustub {
 
 TEST(TrieDebugger, TestCase) {
-  //std::mt19937_64 gen(2333);
-  //std::uniform_int_distribution<uint32_t> dis(0, 100);
+  // std::mt19937_64 gen(2333);
+  // std::uniform_int_distribution<uint32_t> dis(0, 100);
   auto trie = Trie();
   trie = trie.Put<uint32_t>("65", 25);
   trie = trie.Put<uint32_t>("61", 65);
@@ -30,7 +30,7 @@ TEST(TrieDebugger, TestCase) {
   trie = trie.Put<uint32_t>("75", 29);
 
   // Put a breakpoint here.
-  //std::cout<<trie.Get<std::string_view>("93");
+  // std::cout<<trie.Get<std::string_view>("93");
   // (1) How many children nodes are there on the root?
   // Replace `CASE_1_YOUR_ANSWER` in `trie_answer.h` with the correct answer.
   if (CASE_1_YOUR_ANSWER != Case1CorrectAnswer()) {
