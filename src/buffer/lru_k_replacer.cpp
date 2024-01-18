@@ -11,7 +11,7 @@
 //===----------------------------------------------------------------------===//
 
 #include "buffer/lru_k_replacer.h"
-#include <mutex>
+// #include <mutex>
 #include "common/exception.h"
 
 namespace bustub {

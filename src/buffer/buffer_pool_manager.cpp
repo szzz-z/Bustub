@@ -13,7 +13,7 @@
 #include "buffer/buffer_pool_manager.h"
 #include <cstddef>
 #include <cstdio>
-#include <mutex>
+// #include <mutex>
 
 #include "common/config.h"
 #include "common/exception.h"
@@ -140,7 +140,7 @@ auto BufferPoolManager::DeletePage(page_id_t page_id) -> bool {
     FlushPage(page_id);
   }
   page_table_.erase(page_id);
-  replacer_->Evict(&frame_id);
+  replacer_->Remove(frame_id);
   free_list_.emplace_back(frame_id);
   pages_[frame_id].page_id_ = INVALID_PAGE_ID;
   pages_[frame_id].ResetMemory();
