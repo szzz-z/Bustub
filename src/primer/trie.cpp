@@ -63,37 +63,44 @@ auto Trie::Put(std::string_view key, T value) const -> Trie {
 
   return Trie(current_node);
 }
-
 auto Trie::Remove(std::string_view key) const -> Trie {
+  // throw NotImplementedException("Trie::Remove is not implemented.");
+
+  // You should walk through the trie and remove nodes if necessary. If the node doesn't contain a value any more,
+  // you should convert it to `TrieNode`. If a node doesn't have children any more, you should remove it.
+
   std::stack<std::shared_ptr<const TrieNode>> existed_node;
+
   std::shared_ptr<const TrieNode> current_node = root_;
   std::size_t idx = 0;
 
+  // 遍历输入的 key
   for (idx = 0; idx < key.size() && current_node != nullptr; ++idx) {
     existed_node.push(current_node);
     auto it = current_node->children_.find(key[idx]);
     current_node = (it == current_node->children_.end()) ? nullptr : it->second;
   }
 
-  if (idx != key.size() || !current_node || !current_node->is_value_node_) {
+  if (!current_node->is_value_node_ || idx != key.size() || !current_node) {
     return *this;
   }
 
-  std::shared_ptr<const TrieNode> leaf =
-      current_node->children_.empty() ? nullptr : std::make_shared<const TrieNode>(current_node->children_);
-
-  std::shared_ptr<const TrieNode> child = leaf;
-  if (key.empty()) {
-    current_node = child;
-  }
+  current_node = std::make_shared<const TrieNode>(current_node->children_);
 
   while (!existed_node.empty()) {
-    current_node = std::shared_ptr<const TrieNode>(existed_node.top()->Clone());
-    const_cast<TrieNode *>(current_node.get())->children_[key[existed_node.size() - 1]] = child;
-    child = current_node;
+    auto child = existed_node.top()->Clone();
+    if (current_node->children_.empty() && !current_node->is_value_node_) {
+      child->children_.erase(key[existed_node.size() - 1]);
+    } else {
+      child->children_[key[existed_node.size() - 1]] = current_node;
+    }
+    current_node = std::move(child);
     existed_node.pop();
   }
 
+  if (current_node->children_.empty()) {
+    return {};
+  }
   return Trie(current_node);
 }
 

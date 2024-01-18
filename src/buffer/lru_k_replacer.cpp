@@ -120,18 +120,16 @@ void LRUKReplacer::SetEvictable(frame_id_t frame_id, bool set_evictable) {
 void LRUKReplacer::Remove(frame_id_t frame_id) {
   std::scoped_lock<std::mutex> lock(latch_);
 
-  auto node_store_it = cache_hash_.find(frame_id);
-  if (node_store_it != cache_hash_.end()) {
-    cache_.erase(node_store_it->second);
-    cache_hash_.erase(node_store_it);
-    records_.erase(frame_id);
+  auto cache_hash_it = cache_hash_.find(frame_id);
+  if (cache_hash_it != cache_hash_.end()) {
+    cache_.erase(cache_hash_it->second);
+    cache_hash_.erase(cache_hash_it);
   }
 
   auto history_hash_it = history_hash_.find(frame_id);
   if (history_hash_it != history_hash_.end()) {
     history_.erase(history_hash_it->second);
     history_hash_.erase(history_hash_it);
-    records_.erase(frame_id);
   }
 
   auto evictable_it = evictable_.find(frame_id);
@@ -141,6 +139,7 @@ void LRUKReplacer::Remove(frame_id_t frame_id) {
     }
     evictable_.erase(evictable_it);
   }
+  records_.erase(frame_id);
 }
 
 auto LRUKReplacer::Size() -> size_t {

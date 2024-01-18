@@ -76,7 +76,7 @@ class LRUKReplacer {
    *
    * A frame with less than k historical references is given +inf as its backward k-distance.
    * If multiple frames have inf backward k-distance, then evict frame with earliest timestamp
-   * based on LRU.
+   * based on FIFO!!!!!!!
    *
    * Successful eviction of a frame should decrement the size of replacer and remove the frame's
    * access history.
