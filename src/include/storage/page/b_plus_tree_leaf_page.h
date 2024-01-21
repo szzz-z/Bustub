@@ -14,6 +14,7 @@
 #include <utility>
 #include <vector>
 
+#include "common/config.h"
 #include "storage/page/b_plus_tree_page.h"
 
 namespace bustub {
@@ -58,7 +59,13 @@ class BPlusTreeLeafPage : public BPlusTreePage {
   auto GetNextPageId() const -> page_id_t;
   void SetNextPageId(page_id_t next_page_id);
   auto KeyAt(int index) const -> KeyType;
-
+  auto ValueAt(int index) const -> ValueType;
+  auto KeyValueAt(int index) const -> const MappingType &;
+  void Insert(KeyType key, ValueType value, int index);
+  void Remove(int index);
+  auto Split(BPlusTreeLeafPage *leaf, page_id_t leaf_id) -> KeyType;
+  auto Merge(BPlusTreeLeafPage *neighbor_leaf) -> KeyType;
+  auto Borrow(BPlusTreeLeafPage *neighbor_leaf, bool is_left) -> KeyType;
   /**
    * @brief for test only return a string representing all keys in
    * this leaf page formatted as "(key1,key2,key3,...)"
