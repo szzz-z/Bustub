@@ -11,8 +11,6 @@
 #pragma once
 
 #include <string>
-#include <utility>
-#include <vector>
 
 #include "common/config.h"
 #include "storage/page/b_plus_tree_page.h"
@@ -61,6 +59,7 @@ class BPlusTreeLeafPage : public BPlusTreePage {
   auto KeyAt(int index) const -> KeyType;
   auto ValueAt(int index) const -> ValueType;
   auto KeyValueAt(int index) const -> const MappingType &;
+  auto Binarysearch(const KeyType &key, KeyComparator comparator) const -> int;
   void Insert(KeyType key, ValueType value, int index);
   void Remove(int index);
   auto Split(BPlusTreeLeafPage *leaf, page_id_t leaf_id) -> KeyType;

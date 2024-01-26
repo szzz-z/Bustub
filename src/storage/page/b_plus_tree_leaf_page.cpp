@@ -62,6 +62,22 @@ INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_LEAF_PAGE_TYPE::KeyValueAt(int index) const -> const MappingType & { return array_[index]; }
 
 INDEX_TEMPLATE_ARGUMENTS
+auto B_PLUS_TREE_LEAF_PAGE_TYPE::Binarysearch(const KeyType &key, KeyComparator comparator) const -> int {
+  int left = 0;
+  int right = GetSize();
+  while (left < right) {
+    int mid = (left + right) >> 1;
+    int comparation = comparator(key, KeyAt(mid));
+    if (comparation <= 0) {
+      right = mid;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return right;
+}  // std::lower_bound
+
+INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(KeyType key, ValueType value, int index) {
   auto size = GetSize();
   std::move_backward(array_ + index, array_ + size, array_ + size + 1);

@@ -10,17 +10,13 @@
  */
 #pragma once
 
-#include <algorithm>
 #include <deque>
 #include <iostream>
 #include <optional>
-#include <queue>
-#include <shared_mutex>
 #include <string>
+#include <utility>
 #include <vector>
-
 #include "common/config.h"
-#include "common/macros.h"
 #include "concurrency/transaction.h"
 #include "storage/index/index_iterator.h"
 #include "storage/page/b_plus_tree_header_page.h"
@@ -75,6 +71,18 @@ class BPlusTree {
   // Insert a key-value pair into this B+ tree.
   auto Insert(const KeyType &key, const ValueType &value, Transaction *txn = nullptr) -> bool;
 
+  void FindLeaf(Context &ctx, const KeyType &key, const BPlusTreePage *cur_page);
+
+  void InsertToLeaf(LeafPage *leaf, KeyType key, ValueType value);
+
+  void InsertToParent(InternalPage *parent, KeyType key, page_id_t value);
+
+  void CreateNewRoot(Context &ctx, BPlusTreeHeaderPage *root, std::pair<KeyType, page_id_t> KV);
+
+  auto SplitLeaf(LeafPage *leaf, KeyType key, ValueType value) -> std::pair<KeyType, page_id_t>;
+
+  auto SplitInternal(InternalPage *node) -> std::pair<KeyType, page_id_t>;
+
   // Remove a key and its value from this B+ tree.
   void Remove(const KeyType &key, Transaction *txn);
 
@@ -82,7 +90,7 @@ class BPlusTree {
   auto GetValue(const KeyType &key, std::vector<ValueType> *result, Transaction *txn = nullptr) -> bool;
 
   // Return the page id of the root node
-  auto GetRootPageId() -> page_id_t;
+  auto GetRootPageId() const -> page_id_t;
 
   // Index iterator
   auto Begin() -> INDEXITERATOR_TYPE;

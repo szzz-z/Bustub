@@ -10,8 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include <algorithm>
-#include <cstdio>
 
 #include "buffer/buffer_pool_manager.h"
 #include "gtest/gtest.h"

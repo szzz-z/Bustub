@@ -10,9 +10,9 @@
 //===----------------------------------------------------------------------===//
 #pragma once
 
-#include <queue>
 #include <string>
-
+#include <utility>
+#include "common/config.h"
 #include "storage/page/b_plus_tree_page.h"
 
 namespace bustub {
@@ -79,6 +79,7 @@ class BPlusTreeInternalPage : public BPlusTreePage {
    *
    * @return std::string
    */
+
   auto ToString() const -> std::string {
     std::string kstr = "(";
     bool first = true;
@@ -98,6 +99,15 @@ class BPlusTreeInternalPage : public BPlusTreePage {
 
     return kstr;
   }
+
+  void SetValueAt(int index, const ValueType &value);
+  auto Binarysearch(const KeyType &key, KeyComparator comparator) const -> int;
+  void Insert(KeyType key, ValueType value, int index);
+  void Remove(int index);
+  auto Split(BPlusTreeInternalPage *neighbor) -> KeyType;
+  auto Merge(BPlusTreeInternalPage *neighbor_node) -> KeyType;
+  auto GetInternalNeighbors(int index) const -> std::pair<page_id_t, page_id_t>;
+  auto Borrow(BPlusTreeInternalPage *neighbor, bool is_left) -> KeyType;
 
  private:
   // Flexible array member for page data.
