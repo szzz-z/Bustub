@@ -22,6 +22,7 @@
 #include "storage/page/b_plus_tree_header_page.h"
 #include "storage/page/b_plus_tree_internal_page.h"
 #include "storage/page/b_plus_tree_leaf_page.h"
+#include "storage/page/b_plus_tree_page.h"
 #include "storage/page/page_guard.h"
 
 namespace bustub {
@@ -73,9 +74,11 @@ class BPlusTree {
 
   void FindLeaf(Context &ctx, const KeyType &key, const BPlusTreePage *cur_page);
 
-  void InsertToLeaf(LeafPage *leaf, KeyType key, ValueType value);
+  void FindLeaf(Context &ctx, const KeyType &key, const BPlusTreePage *cur_page, std::vector<int> &path);
 
-  void InsertToParent(InternalPage *parent, KeyType key, page_id_t value);
+  void InsertToLeaf(LeafPage *leaf, const KeyType &key, ValueType value);
+
+  void InsertToParent(InternalPage *parent, const KeyType &key, page_id_t value);
 
   void CreateNewRoot(Context &ctx, BPlusTreeHeaderPage *root, std::pair<KeyType, page_id_t> KV);
 
@@ -85,6 +88,12 @@ class BPlusTree {
 
   // Remove a key and its value from this B+ tree.
   void Remove(const KeyType &key, Transaction *txn);
+
+  void RemoveFromLeaf(LeafPage *leaf, const KeyType &key);
+
+  void RemoveHelper(LeafPage *leaf, InternalPage *parent, std::vector<int> &path);
+
+  void RemoveHelper(InternalPage *node, InternalPage *parent, std::vector<int> &path);
 
   // Return the value associated with a given key
   auto GetValue(const KeyType &key, std::vector<ValueType> *result, Transaction *txn = nullptr) -> bool;

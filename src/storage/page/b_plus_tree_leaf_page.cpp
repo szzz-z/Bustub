@@ -119,17 +119,17 @@ auto B_PLUS_TREE_LEAF_PAGE_TYPE::Merge(BPlusTreeLeafPage *neighbor_leaf) -> KeyT
 
 INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_LEAF_PAGE_TYPE::Borrow(BPlusTreeLeafPage *neighbor_leaf, bool is_left) -> KeyType {
-  KeyType insert_key{};
+  KeyType new_key{};
   if (is_left) {
-    insert_key = neighbor_leaf->KeyAt(neighbor_leaf->GetSize() - 1);
-    Insert(insert_key, neighbor_leaf->ValueAt(neighbor_leaf->GetSize() - 1), 0);
+    new_key = neighbor_leaf->KeyAt(neighbor_leaf->GetSize() - 1);
+    Insert(new_key, neighbor_leaf->ValueAt(neighbor_leaf->GetSize() - 1), 0);
     neighbor_leaf->Remove(neighbor_leaf->GetSize() - 1);
   } else {
-    insert_key = neighbor_leaf->KeyAt(0);
-    Insert(insert_key, neighbor_leaf->ValueAt(0), this->GetSize());
+    Insert(new_key, neighbor_leaf->ValueAt(0), this->GetSize());
     neighbor_leaf->Remove(0);
+    new_key = neighbor_leaf->KeyAt(0);
   }
-  return insert_key;
+  return new_key;
 }
 
 template class BPlusTreeLeafPage<GenericKey<4>, RID, GenericComparator<4>>;
