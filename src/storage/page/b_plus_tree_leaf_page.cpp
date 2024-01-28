@@ -64,30 +64,35 @@ auto B_PLUS_TREE_LEAF_PAGE_TYPE::KeyValueAt(int index) const -> const MappingTyp
 INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_LEAF_PAGE_TYPE::Binarysearch(const KeyType &key, KeyComparator comparator) const -> int {
   int left = 0;
-  int right = GetSize();
-  while (left < right) {
-    int mid = (left + right) >> 1;
+  int right = GetSize() - 1;
+  int idx = GetSize();
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
     int comparation = comparator(key, KeyAt(mid));
     if (comparation <= 0) {
-      right = mid;
+      idx = mid;
+      right = mid - 1;
     } else {
       left = mid + 1;
     }
   }
-  return right;
-}  // std::lower_bound
+  return idx;
+}
 
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::Insert(KeyType key, ValueType value, int index) {
-  auto size = GetSize();
-  std::move_backward(array_ + index, array_ + size, array_ + size + 1);
-  array_[index] = std::make_pair(key, value);
   IncreaseSize(1);
+  for (int i = GetSize() - 1; i > index; --i) {
+    array_[i] = array_[i - 1];
+  }
+  array_[index] = MappingType(key, value);
 }
 
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_LEAF_PAGE_TYPE::Remove(int index) {
-  std::move(array_ + index + 1, array_ + GetSize(), array_ + index);
+  for (int i = index; i < GetSize() - 1; ++i) {
+    array_[i] = array_[i + 1];
+  }
   IncreaseSize(-1);
 }
 
@@ -96,9 +101,10 @@ auto B_PLUS_TREE_LEAF_PAGE_TYPE::Split(BPlusTreeLeafPage *leaf, page_id_t leaf_i
   int size = GetSize();
   int mid = size >> 1;
   KeyType mid_key = KeyAt(mid);
-  std::move(array_ + mid, array_ + size, leaf->array_);
+  for (int i = mid; i < size; ++i) {
+    leaf->Insert(KeyAt(i), ValueAt(i), i - mid);
+  }
   SetSize(mid);
-  leaf->SetSize(size - mid);
   leaf->SetNextPageId(next_page_id_);
   next_page_id_ = leaf_id;
   return mid_key;
@@ -109,10 +115,12 @@ auto B_PLUS_TREE_LEAF_PAGE_TYPE::Merge(BPlusTreeLeafPage *neighbor_leaf) -> KeyT
   auto size = GetSize();
   auto neighbor_leaf_size = neighbor_leaf->GetSize();
   auto remove = neighbor_leaf->KeyAt(0);
-  std::move(neighbor_leaf->array_, neighbor_leaf->array_ + neighbor_leaf_size, array_ + size);
   IncreaseSize(neighbor_leaf_size);
+  for (int i = size; i < GetSize(); i++) {
+    array_[i] = neighbor_leaf->array_[i - size];
+  }
   next_page_id_ = neighbor_leaf->GetNextPageId();
-  neighbor_leaf->SetNextPageId(INVALID_PAGE_ID);
+  // neighbor_leaf->SetNextPageId(INVALID_PAGE_ID);
   neighbor_leaf->SetSize(0);
   return remove;
 }
@@ -125,7 +133,7 @@ auto B_PLUS_TREE_LEAF_PAGE_TYPE::Borrow(BPlusTreeLeafPage *neighbor_leaf, bool i
     Insert(new_key, neighbor_leaf->ValueAt(neighbor_leaf->GetSize() - 1), 0);
     neighbor_leaf->Remove(neighbor_leaf->GetSize() - 1);
   } else {
-    Insert(new_key, neighbor_leaf->ValueAt(0), this->GetSize());
+    Insert(neighbor_leaf->KeyAt(0), neighbor_leaf->ValueAt(0), GetSize());
     neighbor_leaf->Remove(0);
     new_key = neighbor_leaf->KeyAt(0);
   }

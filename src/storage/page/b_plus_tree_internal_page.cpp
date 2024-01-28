@@ -55,35 +55,38 @@ void B_PLUS_TREE_INTERNAL_PAGE_TYPE::SetValueAt(int index, const ValueType &valu
 
 INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_INTERNAL_PAGE_TYPE::Binarysearch(const KeyType &key, KeyComparator comparator) const -> int {
-  int left = 0;
-  int right = GetSize();
-  while (left + 1 < right) {
-    int mid = (left + right) >> 1;
-    int comparation = comparator(key, KeyAt(mid));
-    if (comparation < 0) {
-      right = mid;
-    } else if (comparation > 0) {
-      left = mid;
-    } else {
-      left = mid;
-      right = mid + 1;
-      break;
+  int idx = 0;
+  if (GetSize() > 1) {
+    int l = 1;
+    int r = GetSize() - 1;
+    while (l <= r) {
+      int mid = l + (r - l) / 2;
+      int comparation = mid == 0 ? 1 : comparator(key, KeyAt(mid));
+      if (comparation < 0) {
+        r = mid - 1;
+      } else {
+        idx = mid;
+        l = mid + 1;
+      }
     }
   }
-  return left;
+  return idx;
 }
 
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Insert(KeyType key, ValueType value, int index) {
-  auto size = GetSize();
-  std::move_backward(array_ + index, array_ + size, array_ + size + 1);
-  array_[index] = std::make_pair(key, value);
+  for (int i = GetSize(); i > index; --i) {
+    array_[i] = array_[i - 1];
+  }
+  array_[index] = MappingType(key, value);
   IncreaseSize(1);
 }
 
 INDEX_TEMPLATE_ARGUMENTS
 void B_PLUS_TREE_INTERNAL_PAGE_TYPE::Remove(int index) {
-  std::move(array_ + index + 1, array_ + GetSize(), array_ + index);
+  for (int i = index; i < GetSize() - 1; ++i) {
+    array_[i] = array_[i + 1];
+  }
   IncreaseSize(-1);
 }
 
@@ -91,10 +94,11 @@ INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_INTERNAL_PAGE_TYPE::Split(BPlusTreeInternalPage *neighbor) -> KeyType {
   int size = GetSize();
   int mid = size >> 1;
-  KeyType mid_key = KeyAt(mid);
-  std::move(array_ + mid, array_ + size, neighbor->array_);
+  auto mid_key = KeyAt(mid);
+  for (int i = mid; i < size; ++i) {
+    neighbor->Insert(KeyAt(i), ValueAt(i), i - mid);
+  }
   SetSize(mid);
-  neighbor->SetSize(size - mid);
   return mid_key;
 }
 
@@ -103,8 +107,10 @@ auto B_PLUS_TREE_INTERNAL_PAGE_TYPE::Merge(BPlusTreeInternalPage *neighbor_node)
   auto size = GetSize();
   auto neighbor_node_size = neighbor_node->GetSize();
   auto remove = neighbor_node->KeyAt(0);
-  std::move(neighbor_node->array_, neighbor_node->array_ + neighbor_node_size, array_ + size);
   IncreaseSize(neighbor_node_size);
+  for (int i = size; i < GetSize(); i++) {
+    this->array_[i] = neighbor_node->array_[i - size];
+  }
   neighbor_node->SetSize(0);
   return remove;
 }
@@ -118,17 +124,17 @@ auto B_PLUS_TREE_INTERNAL_PAGE_TYPE::GetInternalNeighbors(int index) const -> st
 
 INDEX_TEMPLATE_ARGUMENTS
 auto B_PLUS_TREE_INTERNAL_PAGE_TYPE::Borrow(BPlusTreeInternalPage *neighbor, bool is_left) -> KeyType {
-  KeyType insert_key{};
+  KeyType new_key;
   if (is_left) {
-    insert_key = neighbor->KeyAt(neighbor->GetSize() - 1);
-    this->Insert(insert_key, neighbor->ValueAt(neighbor->GetSize() - 1), 0);
+    new_key = neighbor->KeyAt(neighbor->GetSize() - 1);
+    Insert(new_key, neighbor->ValueAt(neighbor->GetSize() - 1), 0);
     neighbor->Remove(neighbor->GetSize() - 1);
   } else {
-    insert_key = neighbor->KeyAt(0);
-    this->Insert(insert_key, neighbor->ValueAt(0), this->GetSize());
+    Insert(neighbor->KeyAt(0), neighbor->ValueAt(0), GetSize());
     neighbor->Remove(0);
+    new_key = neighbor->KeyAt(0);
   }
-  return insert_key;
+  return new_key;
 }
 
 // valuetype for internalNode should be page id_t
