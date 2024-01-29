@@ -152,7 +152,6 @@ class LRUKReplacer {
   // TODO(student): implement me! You can replace these member variables as you like.
   // Remove maybe_unused if you start using them.
   std::unordered_map<frame_id_t, std::list<frame_id_t>::iterator> cache_hash_;    // 页在缓存中的位置
-                                                                                  // 访问记录
   std::unordered_map<frame_id_t, std::list<frame_id_t>::iterator> history_hash_;  // 页在history中的位置
 
   std::unordered_map<frame_id_t, size_t> records_;  // 访问次数

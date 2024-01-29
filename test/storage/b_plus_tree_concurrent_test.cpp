@@ -13,6 +13,7 @@
 #include <chrono>  // NOLINT
 #include <cstdio>
 #include <functional>
+#include <random>
 #include <thread>  // NOLINT
 
 #include "buffer/buffer_pool_manager.h"
@@ -355,7 +356,7 @@ TEST(BPlusTreeConcurrentTest, MixTest2) {
   // Add perserved_keys
   std::vector<int64_t> perserved_keys;
   std::vector<int64_t> dynamic_keys;
-  int64_t total_keys = 50;
+  int64_t total_keys = 1000;
   int64_t sieve = 5;
   for (int64_t i = 1; i <= total_keys; i++) {
     if (i % sieve == 0) {
@@ -378,9 +379,9 @@ TEST(BPlusTreeConcurrentTest, MixTest2) {
   tasks.emplace_back(delete_task);
   tasks.emplace_back(lookup_task);
 
-  size_t num_threads = 6;
+  size_t num_threads = 9;
   for (size_t i = 0; i < num_threads; i++) {
-    threads.emplace_back(std::thread{tasks[i % tasks.size()], i});
+    threads.emplace_back(tasks[i % tasks.size()], i);
   }
   for (size_t i = 0; i < num_threads; i++) {
     threads[i].join();
@@ -400,6 +401,206 @@ TEST(BPlusTreeConcurrentTest, MixTest2) {
 
   bpm->UnpinPage(HEADER_PAGE_ID, true);
   delete bpm;
+}
+
+TEST(BPlusTreeConcurrentTest, MixTest3) {
+  // test from github
+  // create KeyComparator and index schema
+  auto key_schema = ParseCreateStatement("a bigint");
+  GenericComparator<8> comparator(key_schema.get());
+
+  auto disk_manager = new DiskManager("test.db");
+  auto *bpm = new BufferPoolManager(50, disk_manager);
+
+  // create and fetch header_page
+  page_id_t page_id;
+  auto header_page = bpm->NewPage(&page_id);
+  (void)header_page;
+
+  // create b+ tree
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", page_id, bpm, comparator);
+  GenericKey<8> index_key;
+  // RID rid;
+
+  // first, populate index
+  std::vector<int64_t> keys;
+  std::vector<int64_t> all_deleted;
+  for (int i = 1; i <= 1000; ++i) {
+    all_deleted.push_back(i);
+    keys.push_back(i + 1000);
+  }
+  // keys1: 0,2,4...
+  // keys2: 1,3,5...
+  // keys: 100 ~ 200
+
+  // concurrent insert
+  LaunchParallelTest(4, InsertHelperSplit, &tree, all_deleted, 4);
+
+  // concurrent insert and delete
+  std::thread t0([&]() { InsertHelper(&tree, keys); });
+  LaunchParallelTest(4, DeleteHelperSplit, &tree, all_deleted, 4);
+
+  t0.join();
+
+  std::vector<RID> rids;
+  for (auto key : all_deleted) {
+    rids.clear();
+    index_key.SetFromInteger(key);
+    auto res = tree.GetValue(index_key, &rids);
+    EXPECT_EQ(false, res);
+  }
+
+  int64_t current_key = 1001;
+  int64_t size = 0;
+  index_key.SetFromInteger(current_key);
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+    auto location = (*iterator).second;
+    EXPECT_EQ(location.GetPageId(), 0);
+    EXPECT_EQ(location.GetSlotNum(), current_key);
+    current_key = current_key + 1;
+    size = size + 1;
+  }
+
+  EXPECT_EQ(size, 1000);
+  bpm->UnpinPage(HEADER_PAGE_ID, true);
+  delete disk_manager;
+  delete bpm;
+  remove("test.db");
+  remove("test.log");
+}
+
+// helper function to insert and get
+void InsertAndGetHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> &tree, const std::vector<int64_t> &keys,
+                        __attribute__((unused)) uint64_t thread_itr = 0) {
+  GenericKey<8> index_key;
+  RID rid;
+  // create transaction
+  auto *transaction = new Transaction(0);
+  for (auto key : keys) {
+    int64_t value = key & 0xFFFFFFFF;
+    rid.Set(static_cast<int32_t>(key >> 32), value);
+    index_key.SetFromInteger(key);
+    tree.Insert(index_key, rid, transaction);
+    std::vector<RID> rids;
+    bool get_suc = tree.GetValue(index_key, &rids, transaction);
+    EXPECT_EQ(get_suc, true);
+    EXPECT_EQ(rids[0].GetSlotNum(), value);
+  }
+
+  delete transaction;
+}
+
+void DeleteAndGetHelper(BPlusTree<GenericKey<8>, RID, GenericComparator<8>> &tree,
+                        const std::vector<int64_t> &remove_keys, __attribute__((unused)) uint64_t thread_itr = 0) {
+  GenericKey<8> index_key;
+  // create transaction
+  auto *transaction = new Transaction(0);
+  for (auto key : remove_keys) {
+    index_key.SetFromInteger(key);
+    tree.Remove(index_key, transaction);
+    std::vector<RID> rids;
+    bool get_suc = tree.GetValue(index_key, &rids, transaction);
+    EXPECT_EQ(get_suc, false);
+  }
+  delete transaction;
+}
+
+TEST(BPlusTreeConcurrentTest, MixTest4) {
+  // create KeyComparator and index schema
+  auto key_schema = ParseCreateStatement("a bigint");
+  GenericComparator<8> comparator(key_schema.get());
+
+  auto disk_manager = new DiskManager("test.db");
+  auto *bpm = new BufferPoolManager(50, disk_manager);
+
+  // create and fetch header_page
+  page_id_t page_id;
+  auto header_page = bpm->NewPage(&page_id);
+  (void)header_page;
+
+  // create b+ tree
+  BPlusTree<GenericKey<8>, RID, GenericComparator<8>> tree("foo_pk", page_id, bpm, comparator);
+  GenericKey<8> index_key;
+  RID rid;
+
+  // first, populate index
+  std::vector<int64_t> keys;
+  std::vector<int64_t> keys2;
+  std::vector<int64_t> deleted1;
+  std::vector<int64_t> deleted2;
+  int scale = 10000;
+  for (int i = 1; i <= scale; ++i) {
+    keys.push_back(i);
+  }
+  std::shuffle(keys.begin(), keys.end(), std::mt19937(std::random_device()()));
+  for (int i = 1; i <= scale / 4; ++i) {
+    deleted1.push_back(keys.back());
+    keys.pop_back();
+  }
+  for (int i = 1; i <= scale / 4; ++i) {
+    deleted2.push_back(keys.back());
+    keys.pop_back();
+  }
+  for (int i = 1; i <= scale / 4; ++i) {
+    keys2.push_back(keys.back());
+    keys.pop_back();
+  }
+  //  for (const auto i: keys)
+  //    cout << i << ' ';
+  //  cout<<endl;
+  //  for (const auto i: keys2)
+  //    cout << i << ' ';
+  //  cout<<endl;
+  //  for (const auto i: all_deleted)
+  //    cout << i << ' ';
+  //  cout<<endl;
+
+  // concurrent insert
+  LaunchParallelTest(4, InsertHelperSplit, (&tree), std::ref(deleted1), 4);
+  LaunchParallelTest(4, InsertHelperSplit, (&tree), std::ref(deleted2), 4);
+  // concurrent insert and delete
+  std::thread t0(InsertAndGetHelper, std::ref(tree), keys, 0);
+  std::thread t1(InsertAndGetHelper, std::ref(tree), keys2, 0);
+  std::thread t2(DeleteAndGetHelper, std::ref(tree), deleted1, 0);
+  std::thread t3(DeleteAndGetHelper, std::ref(tree), deleted2, 0);
+
+  // std::thread t2(IterateHelper, std::ref(tree));
+  // LaunchParallelTest(4, DeleteHelperSplit, std::ref(tree), std::ref(all_deleted), 4);
+
+  t0.join();
+  t1.join();
+  t2.join();
+  t3.join();
+  std::vector<RID> rids;
+  for (auto key : deleted1) {
+    rids.clear();
+    index_key.SetFromInteger(key);
+    auto res = tree.GetValue(index_key, &rids);
+    EXPECT_EQ(false, res);
+  }
+  for (auto key : deleted2) {
+    rids.clear();
+    index_key.SetFromInteger(key);
+    auto res = tree.GetValue(index_key, &rids);
+    EXPECT_EQ(false, res);
+  }
+
+  int64_t current_key = 0;
+  int64_t size = -1;
+  index_key.SetFromInteger(current_key);
+  int64_t value = current_key & 0xFFFFFFFF;
+  rid.Set(static_cast<int32_t>(current_key), value);
+  tree.Insert(index_key, rid);
+  for (auto iterator = tree.Begin(index_key); iterator != tree.End(); ++iterator) {
+    size = size + 1;
+  }
+
+  EXPECT_EQ(size, scale / 2);
+  bpm->UnpinPage(HEADER_PAGE_ID, true);
+  delete disk_manager;
+  delete bpm;
+  remove("test.db");
+  remove("test.log");
 }
 
 }  // namespace bustub

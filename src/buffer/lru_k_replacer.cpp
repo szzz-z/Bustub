@@ -44,10 +44,10 @@ auto LRUKReplacer::Evict(frame_id_t *frame_id) -> bool {
       *frame_id = *it;
       records_.erase(*frame_id);
 
-      auto node_store_it = cache_hash_.find(*frame_id);
-      if (node_store_it != cache_hash_.end()) {
-        cache_.erase(node_store_it->second);
-        cache_hash_.erase(node_store_it);
+      auto cache_hash_it = cache_hash_.find(*frame_id);
+      if (cache_hash_it != cache_hash_.end()) {
+        cache_.erase(cache_hash_it->second);
+        cache_hash_.erase(cache_hash_it);
       }
 
       curr_size_ -= 1;

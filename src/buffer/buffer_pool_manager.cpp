@@ -48,8 +48,10 @@ auto BufferPoolManager::NewPage(page_id_t *page_id) -> Page * {
     free_list_.pop_front();
   } else if (replacer_->Evict(&frame_id)) {
     if (pages_[frame_id].IsDirty()) {
-      disk_manager_->WritePage(pages_[frame_id].page_id_, pages_[frame_id].data_);
-      pages_[frame_id].is_dirty_ = false;
+      if (page_table_.count(pages_[frame_id].GetPageId()) != 0U) {
+        disk_manager_->WritePage(pages_[frame_id].page_id_, pages_[frame_id].data_);
+        pages_[frame_id].is_dirty_ = false;
+      }
     }
     page_table_.erase(pages_[frame_id].page_id_);
   }
@@ -83,8 +85,10 @@ auto BufferPoolManager::FetchPage(page_id_t page_id, [[maybe_unused]] AccessType
     free_list_.pop_front();
   } else if (replacer_->Evict(&frame_id)) {
     if (pages_[frame_id].IsDirty()) {
-      disk_manager_->WritePage(pages_[frame_id].page_id_, pages_[frame_id].data_);
-      pages_[frame_id].is_dirty_ = false;
+      if (page_table_.count(pages_[frame_id].GetPageId()) != 0U) {
+        disk_manager_->WritePage(pages_[frame_id].page_id_, pages_[frame_id].data_);
+        pages_[frame_id].is_dirty_ = false;
+      }
     }
     page_table_.erase(pages_[frame_id].page_id_);
   }
@@ -125,8 +129,10 @@ auto BufferPoolManager::FlushPage(page_id_t page_id) -> bool {
 void BufferPoolManager::FlushAllPages() {
   std::scoped_lock<std::mutex> lock(latch_);
   for (auto [pid, fid] : page_table_) {
-    disk_manager_->WritePage(pages_[fid].page_id_, pages_[fid].data_);
-    pages_[fid].is_dirty_ = false;
+    if (page_table_.count(pid) != 0U) {
+      disk_manager_->WritePage(pid, pages_[fid].data_);
+      pages_[fid].is_dirty_ = false;
+    }
   }
 }
 
@@ -140,7 +146,8 @@ auto BufferPoolManager::DeletePage(page_id_t page_id) -> bool {
     return false;
   }
   if (pages_[frame_id].IsDirty()) {
-    FlushPage(page_id);
+    disk_manager_->WritePage(page_id, pages_[frame_id].data_);
+    pages_[frame_id].is_dirty_ = false;
   }
   page_table_.erase(page_id);
   replacer_->Remove(frame_id);
