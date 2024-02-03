@@ -41,9 +41,8 @@ void SortExecutor::Init() {
 
 auto SortExecutor::Next(Tuple *tuple, RID *rid) -> bool {
   if (it_ != sorted_.end()) {
-    *tuple = *it_;
+    *tuple = *it_++;
     *rid = tuple->GetRid();
-    ++it_;
     return true;
   }
   return false;

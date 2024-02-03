@@ -39,13 +39,13 @@ struct HashJoinKey {
 
 struct HashJoinKeyHash {
   auto operator()(const HashJoinKey &join_key) const -> std::size_t {
-    size_t curr_hash = 0;
+    size_t cur_hash = 0;
     for (const auto &key : join_key.join_keys_) {
       if (!key.IsNull()) {
-        curr_hash = HashUtil::CombineHashes(curr_hash, HashUtil::HashValue(&key));
+        cur_hash = HashUtil::CombineHashes(cur_hash, HashUtil::HashValue(&key));
       }
     }
-    return curr_hash;
+    return cur_hash;
   }
 };
 struct HashJoinKeyEqual {
@@ -88,6 +88,6 @@ class HashJoinExecutor : public AbstractExecutor {
   std::unique_ptr<AbstractExecutor> right_executor_;
   std::unordered_map<HashJoinKey, std::vector<Tuple>, HashJoinKeyHash, HashJoinKeyEqual> ht_;
   std::vector<Tuple> result_;
-  std::vector<Tuple>::iterator iter_;
+  std::vector<Tuple>::iterator it_;
 };
 }  // namespace bustub

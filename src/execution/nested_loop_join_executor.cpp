@@ -80,8 +80,7 @@ void NestedLoopJoinExecutor::Init() {
 
 auto NestedLoopJoinExecutor::Next(Tuple *tuple, RID *rid) -> bool {
   if (result_it_ != result_.end()) {
-    *tuple = *result_it_;
-    ++result_it_;
+    *tuple = *result_it_++;
     return true;
   }
   return false;
