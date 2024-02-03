@@ -74,10 +74,43 @@ class SimpleAggregationHashTable {
     for (uint32_t i = 0; i < agg_exprs_.size(); i++) {
       switch (agg_types_[i]) {
         case AggregationType::CountStarAggregate:
+          result->aggregates_[i] = ValueFactory::GetIntegerValue(result->aggregates_[i].GetAs<int32_t>() + 1);
+          break;
         case AggregationType::CountAggregate:
+          if (result->aggregates_[i].IsNull()) {
+            result->aggregates_[i] = ValueFactory::GetIntegerValue(0);
+          }
+          if (!input.aggregates_[i].IsNull()) {
+            result->aggregates_[i] = ValueFactory::GetIntegerValue(result->aggregates_[i].GetAs<int32_t>() + 1);
+          }
+          break;
         case AggregationType::SumAggregate:
+          if (!input.aggregates_[i].IsNull()) {
+            if (result->aggregates_[i].IsNull()) {
+              result->aggregates_[i] = input.aggregates_[i];
+            } else {
+              result->aggregates_[i] = ValueFactory::GetIntegerValue(result->aggregates_[i].GetAs<int32_t>() +
+                                                                     input.aggregates_[i].GetAs<int32_t>());
+            }
+          }
+          break;
         case AggregationType::MinAggregate:
+          if (input.aggregates_[i].IsNull()) {
+            break;
+          }
+          if (result->aggregates_[i].IsNull() ||
+              result->aggregates_[i].GetAs<int32_t>() > input.aggregates_[i].GetAs<int32_t>()) {
+            result->aggregates_[i] = input.aggregates_[i];
+          }
+          break;
         case AggregationType::MaxAggregate:
+          if (input.aggregates_[i].IsNull()) {
+            break;
+          }
+          if (result->aggregates_[i].IsNull() ||
+              result->aggregates_[i].GetAs<int32_t>() < input.aggregates_[i].GetAs<int32_t>()) {
+            result->aggregates_[i] = input.aggregates_[i];
+          }
           break;
       }
     }

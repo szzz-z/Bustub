@@ -24,7 +24,7 @@ AggregationExecutor::AggregationExecutor(ExecutorContext *exec_ctx, const Aggreg
     : AbstractExecutor(exec_ctx),
       plan_(plan),
       child_(std::move(child)),
-      aht_({plan_->aggregates_, plan_->agg_types_}),
+      aht_({plan->aggregates_, plan->agg_types_}),
       aht_iterator_({aht_.Begin()}) {}
 
 void AggregationExecutor::Init() {
@@ -33,11 +33,11 @@ void AggregationExecutor::Init() {
   RID id;
   while (child_->Next(&t, &id)) {
     aht_.InsertCombine(MakeAggregateKey(&t), MakeAggregateValue(&t));
+  }
+  aht_iterator_ = aht_.Begin();
+  if (aht_iterator_ == aht_.End() && plan_->GetGroupBys().empty()) {
+    aht_.InsertEmpty();
     aht_iterator_ = aht_.Begin();
-    if (aht_iterator_ == aht_.End() && plan_->GetGroupBys().empty()) {
-      aht_.InsertEmpty();
-      aht_iterator_ = aht_.Begin();
-    }
   }
 }
 
