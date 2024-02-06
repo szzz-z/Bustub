@@ -30,7 +30,6 @@ auto SeqScanExecutor::Next(Tuple *tuple, RID *rid) -> bool {
       *tuple = t;
       *rid = id;
       return true;
-      ;
     }
   }
   return false;

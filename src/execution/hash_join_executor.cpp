@@ -12,7 +12,6 @@
 
 #include "execution/executors/hash_join_executor.h"
 #include <utility>
-#include <vector>
 #include "type/value.h"
 #include "type/value_factory.h"
 
