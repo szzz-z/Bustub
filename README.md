@@ -1,3 +1,8 @@
+<img src="logo/p0.png"  width="400">
+<img src="logo/p1.png"  width="400">
+<img src="logo/p2.png"  width="400">
+<img src="logo/p3.png"  width="400">
+
 <img src="logo/bustub-whiteborder.svg" alt="BusTub Logo" height="200">
 
 -----------------
