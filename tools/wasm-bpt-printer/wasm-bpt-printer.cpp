@@ -52,7 +52,7 @@ auto BustubInit(int leaf_max_size, int internal_max_size) -> int {
   try {
     key_schema = ParseCreateStatement(create_stmt);
   } catch (Exception &ex) {
-    std::cerr << "Failed to parse create statement: " << ex.what() << std::endl;
+    std::cerr << "Failed to parse create statement: " << ex.what() << '\n';
   }
 
   GenericComparator<8> comparator(key_schema.get());

@@ -51,7 +51,7 @@ auto main(int argc, char **argv) -> int {
     bustub->GenerateTestTable();
   }
 
-  std::cout << "Welcome to the BusTub shell! Type \\help to learn more." << std::endl << std::endl;
+  std::cout << "Welcome to the BusTub shell! Type \\help to learn more." << '\n' << '\n';
 
   linenoiseHistorySetMaxLen(1024);
   linenoiseSetMultiLine(1);
@@ -101,7 +101,7 @@ auto main(int argc, char **argv) -> int {
         std::cout << table;
       }
     } catch (bustub::Exception &ex) {
-      std::cerr << ex.what() << std::endl;
+      std::cerr << ex.what() << '\n';
     }
   }
 

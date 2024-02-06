@@ -16,7 +16,7 @@ static std::unique_ptr<bustub::BustubInstance> instance = nullptr;
 extern "C" {
 
 auto BustubInit() -> int {
-  std::cout << "Initialize BusTub..." << std::endl;
+  std::cout << "Initialize BusTub..." << '\n';
   auto bustub = std::make_unique<bustub::BustubInstance>();
   bustub->GenerateMockTable();
 
@@ -30,7 +30,7 @@ auto BustubInit() -> int {
 
 auto BustubExecuteQuery(const char *input, char *output, uint16_t len) -> int {
   std::string input_string(input);
-  std::cout << input_string << std::endl;
+  std::cout << input_string << '\n';
   std::string output_string;
   try {
     auto writer = bustub::HtmlWriter();
@@ -39,7 +39,7 @@ auto BustubExecuteQuery(const char *input, char *output, uint16_t len) -> int {
   } catch (bustub::Exception &ex) {
     output_string = ex.what();
   }
-  std::cout << output_string << std::endl;
+  std::cout << output_string << '\n';
   strncpy(output, output_string.c_str(), len);
   if (output_string.length() >= len) {
     return 1;

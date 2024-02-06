@@ -66,7 +66,7 @@ auto main(int argc, char **argv) -> int {
   try {
     key_schema = ParseCreateStatement(create_stmt);
   } catch (Exception &ex) {
-    std::cerr << "Failed to parse create statement: " << ex.what() << std::endl;
+    std::cerr << "Failed to parse create statement: " << ex.what() << '\n';
   }
 
   GenericComparator<8> comparator(key_schema.get());
@@ -111,7 +111,7 @@ auto main(int argc, char **argv) -> int {
         quit = true;
         break;
       case 'p':
-        std::cout << tree.DrawBPlusTree() << std::endl;
+        std::cout << tree.DrawBPlusTree() << '\n';
         tree.Print(bpm);
         break;
       case 'g':

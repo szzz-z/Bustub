@@ -147,7 +147,7 @@ auto main(int argc, char **argv) -> int {
   try {
     program.parse_args(argc, argv);
   } catch (const std::runtime_error &err) {
-    std::cerr << err.what() << std::endl;
+    std::cerr << err.what() << '\n';
     std::cerr << program;
     return 1;
   }
@@ -157,7 +157,7 @@ auto main(int argc, char **argv) -> int {
 
   // create schema
   auto schema = "CREATE TABLE nft(id int, terrier int);";
-  std::cerr << "x: create schema" << std::endl;
+  std::cerr << "x: create schema" << '\n';
   bustub->ExecuteSql(schema, writer);
 
   // create index
@@ -178,10 +178,10 @@ auto main(int argc, char **argv) -> int {
 
   if (enable_index) {
     auto schema = "CREATE INDEX nftid on nft(id);";
-    std::cerr << "x: create index" << std::endl;
+    std::cerr << "x: create index" << '\n';
     bustub->ExecuteSql(schema, writer);
   } else {
-    std::cerr << "x: create index disabled" << std::endl;
+    std::cerr << "x: create index disabled" << '\n';
   }
 
 #ifdef TERRIER_BENCH_ENABLE_UPDATE
@@ -194,9 +194,9 @@ auto main(int argc, char **argv) -> int {
   }
 
   if (enable_update) {
-    std::cerr << "x: use update statement" << std::endl;
+    std::cerr << "x: use update statement" << '\n';
   } else {
-    std::cerr << "x: use insert + delete" << std::endl;
+    std::cerr << "x: use insert + delete" << '\n';
   }
 
   uint64_t duration_ms = 30000;
@@ -205,11 +205,11 @@ auto main(int argc, char **argv) -> int {
     duration_ms = std::stoi(program.get("--duration"));
   }
 
-  std::cerr << "x: benchmark for " << duration_ms << "ms" << std::endl;
-  std::cerr << "x: nft_num=" << bustub_nft_num << std::endl;
+  std::cerr << "x: benchmark for " << duration_ms << "ms" << '\n';
+  std::cerr << "x: nft_num=" << bustub_nft_num << '\n';
 
   // initialize data
-  std::cerr << "x: initialize data" << std::endl;
+  std::cerr << "x: initialize data" << '\n';
   std::string query = "INSERT INTO nft VALUES ";
   for (size_t i = 0; i < bustub_nft_num; i++) {
     query += fmt::format("({}, {})", i, 0);
@@ -234,7 +234,7 @@ auto main(int argc, char **argv) -> int {
     }
   }
 
-  std::cerr << "x: benchmark start" << std::endl;
+  std::cerr << "x: benchmark start" << '\n';
 
   std::vector<std::thread> threads;
   TerrierTotalMetrics total_metrics;
@@ -245,7 +245,7 @@ auto main(int argc, char **argv) -> int {
 
   for (size_t thread_id = 0; thread_id < BUSTUB_TERRIER_THREAD; thread_id++) {
     threads.emplace_back(
-        std::thread([verbose, thread_id, &bustub, enable_update, duration_ms, &total_metrics, bustub_nft_num] {
+        [verbose, thread_id, &bustub, enable_update, duration_ms, &total_metrics, bustub_nft_num] {
           const size_t nft_range_size = bustub_nft_num / BUSTUB_TERRIER_THREAD;
           const size_t nft_range_begin = thread_id * nft_range_size;
           const size_t nft_range_end = (thread_id + 1) * nft_range_size;
@@ -337,11 +337,11 @@ auto main(int argc, char **argv) -> int {
           }
 
           total_metrics.ReportUpdate(metrics.aborted_txn_cnt_, metrics.committed_txn_cnt_);
-        }));
+        });
   }
 
   for (size_t thread_id = 0; thread_id < BUSTUB_TERRIER_THREAD; thread_id++) {
-    threads.emplace_back(std::thread([thread_id, &bustub, duration_ms, &total_metrics] {
+    threads.emplace_back([thread_id, &bustub, duration_ms, &total_metrics] {
       std::random_device r;
       std::default_random_engine gen(r());
       std::uniform_int_distribution<int> terrier_uniform_dist(0, BUSTUB_TERRIER_CNT - 1);
@@ -376,10 +376,10 @@ auto main(int argc, char **argv) -> int {
       }
 
       total_metrics.ReportCount(metrics.aborted_txn_cnt_, metrics.committed_txn_cnt_);
-    }));
+    });
   }
 
-  threads.emplace_back(std::thread([&bustub, duration_ms, &total_metrics, bustub_nft_num] {
+  threads.emplace_back([&bustub, duration_ms, &total_metrics, bustub_nft_num] {
     std::random_device r;
     std::default_random_engine gen(r());
     std::uniform_int_distribution<int> terrier_uniform_dist(0, BUSTUB_TERRIER_CNT - 1);
@@ -470,7 +470,7 @@ auto main(int argc, char **argv) -> int {
     }
 
     total_metrics.ReportVerify(metrics.aborted_txn_cnt_, metrics.committed_txn_cnt_);
-  }));
+  });
 
   for (auto &thread : threads) {
     thread.join();

@@ -114,7 +114,7 @@ auto main(int argc, char **argv) -> int {
   try {
     program.parse_args(argc, argv);
   } catch (const std::runtime_error &err) {
-    std::cerr << err.what() << std::endl;
+    std::cerr << err.what() << '\n';
     std::cerr << program;
     return 1;
   }
@@ -160,7 +160,7 @@ auto main(int argc, char **argv) -> int {
   std::vector<std::thread> threads;
 
   for (size_t thread_id = 0; thread_id < BUSTUB_SCAN_THREAD; thread_id++) {
-    threads.emplace_back(std::thread([thread_id, &page_ids, &bpm, duration_ms, &total_metrics] {
+    threads.emplace_back([thread_id, &page_ids, &bpm, duration_ms, &total_metrics] {
       BpmMetrics metrics(fmt::format("scan {:>2}", thread_id), duration_ms);
       metrics.Begin();
 
@@ -187,11 +187,11 @@ auto main(int argc, char **argv) -> int {
       }
 
       total_metrics.ReportScan(metrics.cnt_);
-    }));
+    });
   }
 
   for (size_t thread_id = 0; thread_id < BUSTUB_GET_THREAD; thread_id++) {
-    threads.emplace_back(std::thread([thread_id, &page_ids, &bpm, duration_ms, &total_metrics] {
+    threads.emplace_back([thread_id, &page_ids, &bpm, duration_ms, &total_metrics] {
       std::random_device r;
       std::default_random_engine gen(r());
       zipfian_int_distribution<size_t> dist(0, BUSTUB_PAGE_CNT - 1, 0.8);
@@ -219,7 +219,7 @@ auto main(int argc, char **argv) -> int {
       }
 
       total_metrics.ReportGet(metrics.cnt_);
-    }));
+    });
   }
 
   for (auto &thread : threads) {

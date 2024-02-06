@@ -44,7 +44,7 @@ auto ResultCompare(const std::string &produced_result, const std::string &expect
       throw bustub::Exception("cannot open file");
     }
     for (const auto &x : a_lines) {
-      r << x << std::endl;
+      r << x << '\n';
     }
     r.close();
 
@@ -53,7 +53,7 @@ auto ResultCompare(const std::string &produced_result, const std::string &expect
       throw bustub::Exception("cannot open file");
     }
     for (const auto &x : b_lines) {
-      e << x << std::endl;
+      e << x << '\n';
     }
     e.close();
   }
@@ -179,7 +179,7 @@ auto main(int argc, char **argv) -> int {  // NOLINT
   try {
     program.parse_args(argc, argv);
   } catch (const std::runtime_error &err) {
-    std::cerr << err.what() << std::endl;
+    std::cerr << err.what() << '\n';
     std::cerr << program;
     return 1;
   }
@@ -190,7 +190,7 @@ auto main(int argc, char **argv) -> int {  // NOLINT
   std::ifstream t(filename);
 
   if (!t) {
-    std::cerr << "Failed to open " << filename << std::endl;
+    std::cerr << "Failed to open " << filename << '\n';
     return 1;
   }
 
