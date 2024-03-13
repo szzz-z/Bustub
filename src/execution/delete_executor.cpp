@@ -32,7 +32,6 @@ auto DeleteExecutor::Next([[maybe_unused]] Tuple *tuple, RID *rid) -> bool {
   Tuple t;
   while (child_executor_->Next(&t, &id)) {
     const TupleMeta tm{INVALID_TXN_ID, INVALID_TXN_ID, true};
-    // const auto new_rid = table_meta->table_->InsertTuple(tm, t);
     table_meta->table_->UpdateTupleMeta(tm, id);
     for (auto index : idx) {
       auto key = t.KeyFromTuple(table_meta->schema_, index->key_schema_, index->index_->GetKeyAttrs());

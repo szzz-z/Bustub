@@ -54,7 +54,8 @@ class LockManager {
     txn_id_t txn_id_;
     /** Locking mode of the requested lock */
     LockMode lock_mode_;
-    /** Oid of the table for a table lock; oid of the table the row belong to for a row lock */
+    /** Oid of the table for a table lock; oid of the table the row belong to
+     * for a row lock */
     table_oid_t oid_;
     /** Rid of the row for a row lock; unused for table locks */
     RID rid_;
@@ -65,7 +66,7 @@ class LockManager {
   class LockRequestQueue {
    public:
     /** List of lock requests for the same resource (table or row) */
-    std::list<LockRequest *> request_queue_;
+    std::list<std::shared_ptr<LockRequest>> request_queue_;
     /** For notifying blocked transactions on this rid */
     std::condition_variable cv_;
     /** txn_id of an upgrading transaction (if any) */
@@ -100,31 +101,37 @@ class LockManager {
    * [LOCK_NOTE]
    *
    * GENERAL BEHAVIOUR:
-   *    Both LockTable() and LockRow() are blocking methods; they should wait till the lock is granted and then return.
-   *    If the transaction was aborted in the meantime, do not grant the lock and return false.
+   *    Both LockTable() and LockRow() are blocking methods; they should wait
+   * till the lock is granted and then return. If the transaction was aborted in
+   * the meantime, do not grant the lock and return false.
    *
    *
    * MULTIPLE TRANSACTIONS:
-   *    LockManager should maintain a queue for each resource; locks should be granted to transactions in a FIFO manner.
-   *    If there are multiple compatible lock requests, all should be granted at the same time
-   *    as long as FIFO is honoured.
+   *    LockManager should maintain a queue for each resource; locks should be
+   * granted to transactions in a FIFO manner. If there are multiple compatible
+   * lock requests, all should be granted at the same time as long as FIFO is
+   * honoured.
    *
    * SUPPORTED LOCK MODES:
    *    Table locking should support all lock modes.
-   *    Row locking should not support Intention locks. Attempting this should set the TransactionState as
-   *    ABORTED and throw a TransactionAbortException (ATTEMPTED_INTENTION_LOCK_ON_ROW)
+   *    Row locking should not support Intention locks. Attempting this should
+   * set the TransactionState as ABORTED and throw a TransactionAbortException
+   * (ATTEMPTED_INTENTION_LOCK_ON_ROW)
    *
    *
    * ISOLATION LEVEL:
-   *    Depending on the ISOLATION LEVEL, a transaction should attempt to take locks:
+   *    Depending on the ISOLATION LEVEL, a transaction should attempt to take
+   * locks:
    *    - Only if required, AND
    *    - Only if allowed
    *
-   *    For instance S/IS/SIX locks are not required under READ_UNCOMMITTED, and any such attempt should set the
-   *    TransactionState as ABORTED and throw a TransactionAbortException (LOCK_SHARED_ON_READ_UNCOMMITTED).
+   *    For instance S/IS/SIX locks are not required under READ_UNCOMMITTED, and
+   * any such attempt should set the TransactionState as ABORTED and throw a
+   * TransactionAbortException (LOCK_SHARED_ON_READ_UNCOMMITTED).
    *
-   *    Similarly, X/IX locks on rows are not allowed if the the Transaction State is SHRINKING, and any such attempt
-   *    should set the TransactionState as ABORTED and throw a TransactionAbortException (LOCK_ON_SHRINKING).
+   *    Similarly, X/IX locks on rows are not allowed if the the Transaction
+   * State is SHRINKING, and any such attempt should set the TransactionState as
+   * ABORTED and throw a TransactionAbortException (LOCK_ON_SHRINKING).
    *
    *    REPEATABLE_READ:
    *        The transaction is required to take all locks.
@@ -143,31 +150,38 @@ class LockManager {
    *
    *
    * MULTILEVEL LOCKING:
-   *    While locking rows, Lock() should ensure that the transaction has an appropriate lock on the table which the row
-   *    belongs to. For instance, if an exclusive lock is attempted on a row, the transaction must hold either
-   *    X, IX, or SIX on the table. If such a lock does not exist on the table, Lock() should set the TransactionState
-   *    as ABORTED and throw a TransactionAbortException (TABLE_LOCK_NOT_PRESENT)
+   *    While locking rows, Lock() should ensure that the transaction has an
+   * appropriate lock on the table which the row belongs to. For instance, if an
+   * exclusive lock is attempted on a row, the transaction must hold either X,
+   * IX, or SIX on the table. If such a lock does not exist on the table, Lock()
+   * should set the TransactionState as ABORTED and throw a
+   * TransactionAbortException (TABLE_LOCK_NOT_PRESENT)
    *
    *
    * LOCK UPGRADE:
-   *    Calling Lock() on a resource that is already locked should have the following behaviour:
+   *    Calling Lock() on a resource that is already locked should have the
+   * following behaviour:
    *    - If requested lock mode is the same as that of the lock presently held,
    *      Lock() should return true since it already has the lock.
-   *    - If requested lock mode is different, Lock() should upgrade the lock held by the transaction.
+   *    - If requested lock mode is different, Lock() should upgrade the lock
+   * held by the transaction.
    *
-   *    A lock request being upgraded should be prioritised over other waiting lock requests on the same resource.
+   *    A lock request being upgraded should be prioritised over other waiting
+   * lock requests on the same resource.
    *
    *    While upgrading, only the following transitions should be allowed:
    *        IS -> [S, X, IX, SIX]
    *        S -> [X, SIX]
    *        IX -> [X, SIX]
    *        SIX -> [X]
-   *    Any other upgrade is considered incompatible, and such an attempt should set the TransactionState as ABORTED
-   *    and throw a TransactionAbortException (INCOMPATIBLE_UPGRADE)
+   *    Any other upgrade is considered incompatible, and such an attempt should
+   * set the TransactionState as ABORTED and throw a TransactionAbortException
+   * (INCOMPATIBLE_UPGRADE)
    *
-   *    Furthermore, only one transaction should be allowed to upgrade its lock on a given resource.
-   *    Multiple concurrent lock upgrades on the same resource should set the TransactionState as
-   *    ABORTED and throw a TransactionAbortException (UPGRADE_CONFLICT).
+   *    Furthermore, only one transaction should be allowed to upgrade its lock
+   * on a given resource. Multiple concurrent lock upgrades on the same resource
+   * should set the TransactionState as ABORTED and throw a
+   * TransactionAbortException (UPGRADE_CONFLICT).
    *
    *
    * BOOK KEEPING:
@@ -179,20 +193,24 @@ class LockManager {
    * [UNLOCK_NOTE]
    *
    * GENERAL BEHAVIOUR:
-   *    Both UnlockTable() and UnlockRow() should release the lock on the resource and return.
-   *    Both should ensure that the transaction currently holds a lock on the resource it is attempting to unlock.
-   *    If not, LockManager should set the TransactionState as ABORTED and throw
-   *    a TransactionAbortException (ATTEMPTED_UNLOCK_BUT_NO_LOCK_HELD)
+   *    Both UnlockTable() and UnlockRow() should release the lock on the
+   * resource and return. Both should ensure that the transaction currently
+   * holds a lock on the resource it is attempting to unlock. If not,
+   * LockManager should set the TransactionState as ABORTED and throw a
+   * TransactionAbortException (ATTEMPTED_UNLOCK_BUT_NO_LOCK_HELD)
    *
-   *    Additionally, unlocking a table should only be allowed if the transaction does not hold locks on any
-   *    row on that table. If the transaction holds locks on rows of the table, Unlock should set the Transaction State
-   *    as ABORTED and throw a TransactionAbortException (TABLE_UNLOCKED_BEFORE_UNLOCKING_ROWS).
+   *    Additionally, unlocking a table should only be allowed if the
+   * transaction does not hold locks on any row on that table. If the
+   * transaction holds locks on rows of the table, Unlock should set the
+   * Transaction State as ABORTED and throw a TransactionAbortException
+   * (TABLE_UNLOCKED_BEFORE_UNLOCKING_ROWS).
    *
-   *    Finally, unlocking a resource should also grant any new lock requests for the resource (if possible).
+   *    Finally, unlocking a resource should also grant any new lock requests
+   * for the resource (if possible).
    *
    * TRANSACTION STATE UPDATE
-   *    Unlock should update the transaction state appropriately (depending upon the ISOLATION LEVEL)
-   *    Only unlocking S or X locks changes transaction state.
+   *    Unlock should update the transaction state appropriately (depending upon
+   * the ISOLATION LEVEL) Only unlocking S or X locks changes transaction state.
    *
    *    REPEATABLE_READ:
    *        Unlocking S/X locks should set the transaction state to SHRINKING
@@ -204,12 +222,13 @@ class LockManager {
    *   READ_UNCOMMITTED:
    *        Unlocking X locks should set the transaction state to SHRINKING.
    *        S locks are not permitted under READ_UNCOMMITTED.
-   *            The behaviour upon unlocking an S lock under this isolation level is undefined.
+   *            The behaviour upon unlocking an S lock under this isolation
+   * level is undefined.
    *
    *
    * BOOK KEEPING:
-   *    After a resource is unlocked, lock manager should update the transaction's lock sets
-   *    appropriately (check transaction.h)
+   *    After a resource is unlocked, lock manager should update the
+   * transaction's lock sets appropriately (check transaction.h)
    */
 
   /**
@@ -269,7 +288,8 @@ class LockManager {
    * @param rid the RID that is locked by the transaction
    * @param oid the table_oid_t of the table the row belongs to
    * @param rid the RID of the row to be unlocked
-   * @param force unlock the tuple regardless of isolation level, not changing the transaction state
+   * @param force unlock the tuple regardless of isolation level, not changing
+   * the transaction state
    * @return true if the unlock is successful, false otherwise
    */
   auto UnlockRow(Transaction *txn, const table_oid_t &oid, const RID &rid, bool force = false) -> bool;
@@ -291,9 +311,12 @@ class LockManager {
   auto RemoveEdge(txn_id_t t1, txn_id_t t2) -> void;
 
   /**
-   * Checks if the graph has a cycle, returning the newest transaction ID in the cycle if so.
-   * @param[out] txn_id if the graph has a cycle, will contain the newest transaction ID
-   * @return false if the graph has no cycle, otherwise stores the newest transaction ID in the cycle to txn_id
+   * Checks if the graph has a cycle, returning the newest transaction ID in the
+   * cycle if so.
+   * @param[out] txn_id if the graph has a cycle, will contain the newest
+   * transaction ID
+   * @return false if the graph has no cycle, otherwise stores the newest
+   * transaction ID in the cycle to txn_id
    */
   auto HasCycle(txn_id_t *txn_id) -> bool;
 
@@ -312,12 +335,172 @@ class LockManager {
  private:
   /** Spring 2023 */
   /* You are allowed to modify all functions below. */
+  auto GetTableLockSet(Transaction *txn, LockMode lock_mode) -> std::shared_ptr<std::unordered_set<table_oid_t>> {
+    switch (lock_mode) {
+      case LockMode::SHARED:
+        return txn->GetSharedTableLockSet();
+      case LockMode::EXCLUSIVE:
+        return txn->GetExclusiveTableLockSet();
+      case LockMode::INTENTION_SHARED:
+        return txn->GetIntentionSharedTableLockSet();
+      case LockMode::INTENTION_EXCLUSIVE:
+        return txn->GetIntentionExclusiveTableLockSet();
+      case LockMode::SHARED_INTENTION_EXCLUSIVE:
+        return txn->GetSharedIntentionExclusiveTableLockSet();
+      default:
+        return {};
+    }
+  }
+
+  auto GetRowLockSet(Transaction *txn,
+                     LockMode lock_mode) -> std::shared_ptr<std::unordered_map<table_oid_t, std::unordered_set<RID>>> {
+    if (lock_mode == LockMode::SHARED) {
+      return txn->GetSharedRowLockSet();
+    }
+    return txn->GetExclusiveRowLockSet();
+  }
+
+  auto HoldsRowOnTable(Transaction *txn, table_oid_t oid) -> bool {
+    auto row_s_lock_set = txn->GetSharedRowLockSet();
+    auto slocked_rows = row_s_lock_set->find(oid);
+    if (slocked_rows != row_s_lock_set->end() && !slocked_rows->second.empty()) {
+      return true;
+    }
+
+    auto row_x_lock_set = txn->GetExclusiveRowLockSet();
+    auto xlocked_rows = row_x_lock_set->find(oid);
+    return xlocked_rows != row_x_lock_set->end() && !xlocked_rows->second.empty();
+  }
+  auto AddToRowLockSet(Transaction *txn, LockMode lock_mode, table_oid_t oid, RID rid) -> void {
+    auto row_lock_set = GetRowLockSet(txn, lock_mode);
+    auto pair = row_lock_set->find(oid);
+    if (pair != row_lock_set->end()) {
+      pair->second.emplace(rid);
+    } else {
+      row_lock_set->insert({oid, std::unordered_set<RID>{rid}});
+    }
+  }
+
+  auto RemoveFromRowLockSet(Transaction *txn, LockMode lock_mode, table_oid_t oid, RID rid) -> void {
+    auto row_lock_set = GetRowLockSet(txn, lock_mode);
+    auto pair = row_lock_set->find(oid);
+    if (pair != row_lock_set->end()) {
+      pair->second.erase(rid);
+      if (pair->second.empty()) {
+        row_lock_set->erase(oid);
+      }
+    }
+  }
+
+  auto UpgradeTableLockSet(Transaction *txn, LockMode old_lock_mode, LockMode lock_mode,
+                           const table_oid_t &oid) -> void {
+    auto old_lock_set = GetTableLockSet(txn, old_lock_mode);
+    old_lock_set->erase(oid);
+
+    auto lock_set = GetTableLockSet(txn, lock_mode);
+    lock_set->emplace(oid);
+  }
+
+  auto UpgradeRowLockSet(Transaction *txn, LockMode old_lock_mode, LockMode lock_mode, const table_oid_t &oid,
+                         const RID &rid) -> void {
+    auto old_lock_set = GetRowLockSet(txn, old_lock_mode);
+    auto old_locked_rows = old_lock_set->find(oid);
+    if (old_locked_rows != old_lock_set->end()) {
+      old_locked_rows->second.erase(rid);
+      if (old_locked_rows->second.empty()) {
+        old_lock_set->erase(oid);
+      }
+    }
+
+    auto lock_set = GetRowLockSet(txn, lock_mode);
+    auto locked_rows = lock_set->find(oid);
+    if (locked_rows != lock_set->end()) {
+      locked_rows->second.emplace(rid);
+    } else {
+      lock_set->emplace(oid, std::unordered_set<RID>{rid});
+    }
+  }
   auto UpgradeLockTable(Transaction *txn, LockMode lock_mode, const table_oid_t &oid) -> bool;
   auto UpgradeLockRow(Transaction *txn, LockMode lock_mode, const table_oid_t &oid, const RID &rid) -> bool;
-  auto AreLocksCompatible(LockMode l1, LockMode l2) -> bool;
-  auto CanTxnTakeLock(Transaction *txn, LockMode lock_mode) -> bool;
+  auto AreLocksCompatible(LockMode l1, LockMode l2) -> bool {
+    switch (l1) {
+      case LockMode::SHARED:
+        return l2 == LockMode::INTENTION_SHARED || l2 == LockMode::SHARED;
+      case LockMode::INTENTION_SHARED:
+        return l2 == LockMode::INTENTION_SHARED || l2 == LockMode::INTENTION_EXCLUSIVE || l2 == LockMode::SHARED ||
+               l2 == LockMode::SHARED_INTENTION_EXCLUSIVE;
+      case LockMode::INTENTION_EXCLUSIVE:
+        return l2 == LockMode::INTENTION_SHARED || l2 == LockMode::INTENTION_EXCLUSIVE;
+      case LockMode::SHARED_INTENTION_EXCLUSIVE:
+        return l2 == LockMode::INTENTION_SHARED;
+      case LockMode::EXCLUSIVE:
+      default:
+        return false;
+    }
+  };
+  auto CanTxnTakeLock(Transaction *txn, LockMode lock_mode) -> bool {
+    switch (txn->GetIsolationLevel()) {
+      case IsolationLevel::REPEATABLE_READ:
+        // all locks are allowed during the growing state
+        if (txn->GetState() == TransactionState::GROWING) {
+          return true;
+        }
+        break;
+
+      case IsolationLevel::READ_COMMITTED:
+        // all locks are allowed during the growing state
+        if (txn->GetState() == TransactionState::GROWING) {
+          return true;
+        }
+
+        // IS/S lock are allowed during shrinking state
+        if (txn->GetState() == TransactionState::SHRINKING &&
+            (lock_mode == LockMode::INTENTION_SHARED || lock_mode == LockMode::SHARED)) {
+          return true;
+        }
+        break;
+
+      case IsolationLevel::READ_UNCOMMITTED:
+        // S/IS/SIX locks are not allowed at all
+        if (lock_mode == LockMode::SHARED || lock_mode == LockMode::INTENTION_SHARED ||
+            lock_mode == LockMode::SHARED_INTENTION_EXCLUSIVE) {
+          txn->SetState(TransactionState::ABORTED);
+
+          throw TransactionAbortException(txn->GetTransactionId(), AbortReason::LOCK_SHARED_ON_READ_UNCOMMITTED);
+        }
+
+        // X/IX are allowed during growing state
+        if (txn->GetState() == TransactionState::GROWING) {
+          return true;
+        }
+        break;
+    }
+
+    // abort the transaction otherwise
+    txn->SetState(TransactionState::ABORTED);
+
+    throw TransactionAbortException(txn->GetTransactionId(), AbortReason::LOCK_ON_SHRINKING);
+  }
   void GrantNewLocksIfPossible(LockRequestQueue *lock_request_queue);
-  auto CanLockUpgrade(LockMode curr_lock_mode, LockMode requested_lock_mode) -> bool;
+  auto CanLockUpgrade(LockMode curr_lock_mode, LockMode requested_lock_mode) -> bool {
+    switch (curr_lock_mode) {
+      case LockMode::SHARED:
+        return requested_lock_mode == LockMode::EXCLUSIVE ||
+               requested_lock_mode == LockMode::SHARED_INTENTION_EXCLUSIVE;
+      case LockMode::INTENTION_SHARED:
+        return requested_lock_mode == LockMode::SHARED || requested_lock_mode == LockMode::EXCLUSIVE ||
+               requested_lock_mode == LockMode::INTENTION_EXCLUSIVE ||
+               requested_lock_mode == LockMode::SHARED_INTENTION_EXCLUSIVE;
+      case LockMode::INTENTION_EXCLUSIVE:
+        return requested_lock_mode == LockMode::EXCLUSIVE ||
+               requested_lock_mode == LockMode::SHARED_INTENTION_EXCLUSIVE;
+      case LockMode::SHARED_INTENTION_EXCLUSIVE:
+        return requested_lock_mode == LockMode::EXCLUSIVE;
+      case LockMode::EXCLUSIVE:
+      default:
+        return false;
+    }
+  };
   auto CheckAppropriateLockOnTable(Transaction *txn, const table_oid_t &oid, LockMode row_lock_mode) -> bool;
   auto FindCycle(txn_id_t source_txn, std::vector<txn_id_t> &path, std::unordered_set<txn_id_t> &on_path,
                  std::unordered_set<txn_id_t> &visited, txn_id_t *abort_txn_id) -> bool;

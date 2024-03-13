@@ -2,14 +2,14 @@
  * lock_manager_test.cpp
  */
 
+#include "concurrency/lock_manager.h"
+
 #include <random>
 #include <thread>  // NOLINT
 
 #include "common/config.h"
 #include "common_checker.h"  // NOLINT
-#include "concurrency/lock_manager.h"
 #include "concurrency/transaction_manager.h"
-
 #include "gtest/gtest.h"
 
 namespace bustub {
@@ -33,9 +33,11 @@ void CheckTxnRowLockSize(Transaction *txn, table_oid_t oid, size_t shared_size, 
   correct = correct && (*txn->GetSharedRowLockSet())[oid].size() == shared_size;
   correct = correct && (*txn->GetExclusiveRowLockSet())[oid].size() == exclusive_size;
   if (!correct) {
-    fmt::print("row lock size incorrect for txn={} oid={}: expected (S={} X={}), actual (S={} X={})\n",
-               txn->GetTransactionId(), oid, shared_size, exclusive_size, (*txn->GetSharedRowLockSet())[oid].size(),
-               (*txn->GetExclusiveRowLockSet())[oid].size());
+    fmt::print(
+        "row lock size incorrect for txn={} oid={}: expected (S={} X={}), "
+        "actual (S={} X={})\n",
+        txn->GetTransactionId(), oid, shared_size, exclusive_size, (*txn->GetSharedRowLockSet())[oid].size(),
+        (*txn->GetExclusiveRowLockSet())[oid].size());
   }
   EXPECT_TRUE(correct);
 }
@@ -67,7 +69,8 @@ void CheckTableLockSizes(Transaction *txn, size_t s_size, size_t x_size, size_t 
   correct = correct && six_size == txn->GetSharedIntentionExclusiveTableLockSet()->size();
   if (!correct) {
     fmt::print(
-        "table lock size incorrect for txn={}: expected (S={} X={}, IS={}, IX={}, SIX={}), actual (S={} X={}, IS={}, "
+        "table lock size incorrect for txn={}: expected (S={} X={}, IS={}, "
+        "IX={}, SIX={}), actual (S={} X={}, IS={}, "
         "IX={}, "
         "SIX={})\n",
         txn->GetTransactionId(), s_size, x_size, is_size, ix_size, six_size, txn->GetSharedTableLockSet()->size(),
@@ -128,7 +131,7 @@ void TableLockTest1() {
     delete txns[i];
   }
 }
-TEST(LockManagerTest, DISABLED_TableLockTest1) { TableLockTest1(); }  // NOLINT
+TEST(LockManagerTest, TableLockTest1) { TableLockTest1(); }  // NOLINT
 
 /** Upgrading single transaction from S -> X */
 void TableLockUpgradeTest1() {
@@ -153,7 +156,7 @@ void TableLockUpgradeTest1() {
 
   delete txn1;
 }
-TEST(LockManagerTest, DISABLED_TableLockUpgradeTest1) { TableLockUpgradeTest1(); }  // NOLINT
+TEST(LockManagerTest, TableLockUpgradeTest1) { TableLockUpgradeTest1(); }  // NOLINT
 
 void RowLockTest1() {
   LockManager lock_mgr{};
@@ -169,7 +172,8 @@ void RowLockTest1() {
     EXPECT_EQ(i, txns[i]->GetTransactionId());
   }
 
-  /** Each transaction takes an S lock on the same table and row and then unlocks */
+  /** Each transaction takes an S lock on the same table and row and then
+   * unlocks */
   auto task = [&](int txn_id) {
     bool res;
 
@@ -209,7 +213,7 @@ void RowLockTest1() {
     delete txns[i];
   }
 }
-TEST(LockManagerTest, DISABLED_RowLockTest1) { RowLockTest1(); }  // NOLINT
+TEST(LockManagerTest, RowLockTest1) { RowLockTest1(); }  // NOLINT
 
 void TwoPLTest1() {
   LockManager lock_mgr{};
@@ -258,7 +262,7 @@ void TwoPLTest1() {
   delete txn;
 }
 
-TEST(LockManagerTest, DISABLED_TwoPLTest1) { TwoPLTest1(); }  // NOLINT
+TEST(LockManagerTest, TwoPLTest1) { TwoPLTest1(); }  // NOLINT
 
 void AbortTest1() {
   fmt::print(stderr, "AbortTest1: multiple X should block\n");
@@ -320,6 +324,6 @@ void AbortTest1() {
   delete txn3;
 }
 
-TEST(LockManagerTest, DISABLED_RowAbortTest1) { AbortTest1(); }  // NOLINT
+TEST(LockManagerTest, RowAbortTest1) { AbortTest1(); }  // NOLINT
 
 }  // namespace bustub

@@ -10,7 +10,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-
 #include "buffer/buffer_pool_manager.h"
 #include "gtest/gtest.h"
 #include "storage/disk/disk_manager_memory.h"

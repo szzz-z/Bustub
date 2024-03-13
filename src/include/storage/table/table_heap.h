@@ -54,9 +54,9 @@ class TableHeap {
                    Transaction *txn = nullptr, table_oid_t oid = 0) -> std::optional<RID>;
 
   /**
-   * Insert a tuple into the table. If the tuple is too large (>= page_size), return false.
+   * Update the meta of a tuple.
    * @param meta new tuple meta
-   * @param[out] rid the rid of the inserted tuple
+   * @param rid the rid of the inserted tuple
    */
   void UpdateTupleMeta(const TupleMeta &meta, RID rid);
 

@@ -32,9 +32,7 @@ auto UpdateExecutor::Next([[maybe_unused]] Tuple *tuple, RID *rid) -> bool {
   Tuple t;
   while (child_executor_->Next(&t, &id)) {
     const TupleMeta old_tm{INVALID_TXN_ID, INVALID_TXN_ID, true};
-    // const auto new_rid = table_meta->table_->InsertTuple(tm, t);
     table_meta->table_->UpdateTupleMeta(old_tm, id);
-
     const TupleMeta new_tm{INVALID_TXN_ID, INVALID_TXN_ID, false};
     std::vector<Value> val;
     val.reserve(table_meta->schema_.GetColumns().size());
