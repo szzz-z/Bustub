@@ -60,7 +60,7 @@ class InsertExecutor : public AbstractExecutor {
 
   std::unique_ptr<AbstractExecutor> child_executor_;
 
-  bool is_inserted_ = false;
+  bool inserted_ = false;
 };
 
 }  // namespace bustub

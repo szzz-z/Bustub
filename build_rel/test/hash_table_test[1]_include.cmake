@@ -1,0 +1,5 @@
+if(EXISTS "/home/szzz/bustub-2023spring/build_rel/test/hash_table_test[1]_tests.cmake")
+  include("/home/szzz/bustub-2023spring/build_rel/test/hash_table_test[1]_tests.cmake")
+else()
+  add_test(hash_table_test_NOT_BUILT hash_table_test_NOT_BUILT)
+endif()

@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/btree-bench.dir/btree_bench.cpp.o -o ../../bin/bustub-btree-bench  ../../lib/libbustub.a ../../lib/libbustub_murmur3.a ../../lib/libduckdb_pg_query.a ../../lib/libfmt.a ../../lib/libfort.a 

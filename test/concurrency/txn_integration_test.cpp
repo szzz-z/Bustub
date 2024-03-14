@@ -30,7 +30,7 @@ void CommitTest1() {
 }
 
 // NOLINTNEXTLINE
-TEST(CommitAbortTest, DISABLED_CommitTestA) { CommitTest1(); }
+TEST(CommitAbortTest, CommitTestA) { CommitTest1(); }
 
 void Test1(IsolationLevel lvl) {
   // should scan changes of committed txn
@@ -44,13 +44,48 @@ void Test1(IsolationLevel lvl) {
 }
 
 // NOLINTNEXTLINE
-TEST(VisibilityTest, DISABLED_TestA) {
+TEST(VisibilityTest, TestA) {
   // only this one will be public :)
   Test1(IsolationLevel::READ_COMMITTED);
 }
 
 // NOLINTNEXTLINE
-TEST(IsolationLevelTest, DISABLED_InsertTestA) {
+TEST(VisibilityTest, TestB) { Test1(IsolationLevel::READ_UNCOMMITTED); }
+
+/*
+  40: --- TEST CASE Test1 ---
+  40: prepare
+  40: Table created with id = 0
+  40: 6
+  40: start txn 2 in READ_COMMITTED
+  40: delete data with v1 = 233 in txn 2 READ_COMMITTED
+  40: commit txn 2 in READ_COMMITTED
+  40: start txn 3 in READ_COMMITTED
+  40: scan data expect v1 in range [234] in txn 3 READ_COMMITTED
+  40: pass check
+  40: commit txn 3 in READ_COMMITTED
+
+  40: --- TEST CASE Test2 ---
+  40: prepare
+  40: Table created with id = 0
+  40: 6
+  40: start txn 2 in READ_COMMITTED
+  40: delete data with v1 = 233 in txn 2 READ_COMMITTED
+  40: scan data expect v1 in range [234] in txn 2 READ_COMMITTED
+*/
+void Test2(IsolationLevel lvl) {
+  // should scan changes of committed txn
+  auto db = GetDbForVisibilityTest("Test1");
+  auto txn1 = Begin(*db, lvl);
+  Delete(txn1, *db, 233);
+  Scan(txn1, *db, {234});
+  Commit(*db, txn1);
+}
+
+TEST(VisibilityTest, TestC) { Test2(IsolationLevel::READ_COMMITTED); }
+
+// NOLINTNEXTLINE
+TEST(IsolationLevelTest, InsertTestA) {
   ExpectTwoTxn("InsertTestA.1", IsolationLevel::READ_UNCOMMITTED, IsolationLevel::READ_UNCOMMITTED, false, IS_INSERT,
                ExpectedOutcome::DirtyRead);
 }

@@ -31,7 +31,26 @@ void TransactionManager::Commit(Transaction *txn) {
 
 void TransactionManager::Abort(Transaction *txn) {
   /* TODO: revert all the changes in write set */
+  // revert insertion and deletions
+  auto txn_id = txn->GetTransactionId();
+  auto table_write_set = txn->GetWriteSet();
+  while (!table_write_set->empty()) {
+    auto record = table_write_set->back();
+    auto table_heap = record.table_heap_;
+    auto [m, t] = record.table_heap_->GetTuple(record.rid_);
 
+    // re-insert / delete tuples
+    if (m.is_deleted_ && m.delete_txn_id_ == txn_id) {
+      m.is_deleted_ = false;
+      m.delete_txn_id_ = INVALID_TXN_ID;
+    } else if (!m.is_deleted_ && m.insert_txn_id_ == txn_id) {
+      m.is_deleted_ = true;
+      m.delete_txn_id_ = txn_id;
+    }
+    // update meta in table heap
+    table_heap->UpdateTupleMeta(m, record.rid_);
+    txn->GetWriteSet()->pop_back();
+  }
   ReleaseLocks(txn);
 
   txn->SetState(TransactionState::ABORTED);

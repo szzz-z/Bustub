@@ -17,6 +17,7 @@
 #include <list>
 #include <memory>
 #include <mutex>  // NOLINT
+#include <stack>
 #include <unordered_map>
 #include <unordered_set>
 #include <utility>
@@ -321,6 +322,13 @@ class LockManager {
   auto HasCycle(txn_id_t *txn_id) -> bool;
 
   /**
+   * When a transaction t2 is unlocked, we want to remove it from the waits for
+   * graph
+   * @param t2
+   */
+  auto RemoveAllEdgesContaining(txn_id_t t2) -> void;
+
+  /**
    * @return all edges in current waits_for graph
    */
   auto GetEdgeList() -> std::vector<std::pair<txn_id_t, txn_id_t>>;
@@ -352,8 +360,8 @@ class LockManager {
     }
   }
 
-  auto GetRowLockSet(Transaction *txn,
-                     LockMode lock_mode) -> std::shared_ptr<std::unordered_map<table_oid_t, std::unordered_set<RID>>> {
+  auto GetRowLockSet(Transaction *txn, LockMode lock_mode)
+      -> std::shared_ptr<std::unordered_map<table_oid_t, std::unordered_set<RID>>> {
     if (lock_mode == LockMode::SHARED) {
       return txn->GetSharedRowLockSet();
     }
@@ -392,8 +400,8 @@ class LockManager {
     }
   }
 
-  auto UpgradeTableLockSet(Transaction *txn, LockMode old_lock_mode, LockMode lock_mode,
-                           const table_oid_t &oid) -> void {
+  auto UpgradeTableLockSet(Transaction *txn, LockMode old_lock_mode, LockMode lock_mode, const table_oid_t &oid)
+      -> void {
     auto old_lock_set = GetTableLockSet(txn, old_lock_mode);
     old_lock_set->erase(oid);
 
