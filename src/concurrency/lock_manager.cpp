@@ -411,7 +411,6 @@ auto LockManager::HasCycle(txn_id_t *txn_id) -> bool {  // do nothing if the gra
       continue;
     }
 
-    // initialize data structures
     std::deque<txn_id_t> ancestors;
     std::stack<txn_id_t> stack;
     stack.push(vertex);
@@ -468,6 +467,7 @@ void LockManager::RunCycleDetection() {
     std::this_thread::sleep_for(cycle_detection_interval);
     {
       // build waits_for_ graph
+      waits_for_latch_.lock();
       table_lock_map_latch_.lock();
       for (auto &pair : table_lock_map_) {
         auto reqs_on_table = pair.second;
@@ -507,6 +507,7 @@ void LockManager::RunCycleDetection() {
         txn_manager_->Abort(txn);
       }
       waits_for_.clear();
+      waits_for_latch_.unlock();
     }
   }
 }

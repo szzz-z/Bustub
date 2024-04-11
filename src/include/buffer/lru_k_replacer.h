@@ -158,7 +158,7 @@ class LRUKReplacer {
   std::unordered_map<frame_id_t, bool> evictable_;  // 是否可驱逐
   std::list<frame_id_t> cache_;                     // 缓存
   std::list<frame_id_t> history_;
-  size_t curr_size_{0};  // current size of replacer
+  size_t curr_size_{0};  // 可驱逐页的数量
   size_t replacer_size_;
   size_t k_;
   std::mutex latch_;  // 全局大锁
