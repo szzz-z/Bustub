@@ -1,1 +1,0 @@
-/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/trie_store_test.dir/primer/trie_store_test.cpp.o -o trie_store_test  ../lib/libbustub.a ../lib/libgtest.a ../lib/libgmock_main.a ../lib/libbustub_murmur3.a ../lib/libduckdb_pg_query.a ../lib/libfmt.a ../lib/libfort.a ../lib/libgmock.a ../lib/libgtest.a 

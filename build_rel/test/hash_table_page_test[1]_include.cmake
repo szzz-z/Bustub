@@ -1,5 +1,0 @@
-if(EXISTS "/home/szzz/bustub/build_rel/test/hash_table_page_test[1]_tests.cmake")
-  include("/home/szzz/bustub/build_rel/test/hash_table_page_test[1]_tests.cmake")
-else()
-  add_test(hash_table_page_test_NOT_BUILT hash_table_page_test_NOT_BUILT)
-endif()
