@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/buffer/buffer_pool_manager.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/buffer/clock_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/buffer/lru_k_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/buffer/lru_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o.d"
+  "/home/szzz/bustub/src/buffer/buffer_pool_manager.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o.d"
+  "/home/szzz/bustub/src/buffer/clock_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o.d"
+  "/home/szzz/bustub/src/buffer/lru_k_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o.d"
+  "/home/szzz/bustub/src/buffer/lru_replacer.cpp" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o" "gcc" "src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o.d"
   )
 
 # Targets to which this target links.

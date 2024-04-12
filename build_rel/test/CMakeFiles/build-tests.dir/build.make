@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Utility rule file for build-tests.
 
@@ -67,7 +67,7 @@ include test/CMakeFiles/build-tests.dir/compiler_depend.make
 include test/CMakeFiles/build-tests.dir/progress.make
 
 test/CMakeFiles/build-tests:
-	cd /home/szzz/bustub-2023spring/build_rel/test && /usr/bin/ctest --show-only
+	cd /home/szzz/bustub/build_rel/test && /usr/bin/ctest --show-only
 
 build-tests: test/CMakeFiles/build-tests
 build-tests: test/CMakeFiles/build-tests.dir/build.make
@@ -78,10 +78,10 @@ test/CMakeFiles/build-tests.dir/build: build-tests
 .PHONY : test/CMakeFiles/build-tests.dir/build
 
 test/CMakeFiles/build-tests.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/test && $(CMAKE_COMMAND) -P CMakeFiles/build-tests.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/test && $(CMAKE_COMMAND) -P CMakeFiles/build-tests.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/build-tests.dir/clean
 
 test/CMakeFiles/build-tests.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/test /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/test /home/szzz/bustub-2023spring/build_rel/test/CMakeFiles/build-tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/test /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/test /home/szzz/bustub/build_rel/test/CMakeFiles/build-tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/build-tests.dir/depend
 

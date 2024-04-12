@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include src/concurrency/CMakeFiles/bustub_concurrency.dir/depend.make
@@ -72,30 +72,30 @@ include src/concurrency/CMakeFiles/bustub_concurrency.dir/flags.make
 src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o: src/concurrency/CMakeFiles/bustub_concurrency.dir/flags.make
 src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o: ../src/concurrency/lock_manager.cpp
 src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o: src/concurrency/CMakeFiles/bustub_concurrency.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o -MF CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o.d -o CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o -c /home/szzz/bustub-2023spring/src/concurrency/lock_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o -MF CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o.d -o CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o -c /home/szzz/bustub/src/concurrency/lock_manager.cpp
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/concurrency/lock_manager.cpp > CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.i
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/concurrency/lock_manager.cpp > CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.i
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/concurrency/lock_manager.cpp -o CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.s
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/concurrency/lock_manager.cpp -o CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.s
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o: src/concurrency/CMakeFiles/bustub_concurrency.dir/flags.make
 src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o: ../src/concurrency/transaction_manager.cpp
 src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o: src/concurrency/CMakeFiles/bustub_concurrency.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o -MF CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o.d -o CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o -c /home/szzz/bustub-2023spring/src/concurrency/transaction_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o -MF CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o.d -o CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o -c /home/szzz/bustub/src/concurrency/transaction_manager.cpp
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/concurrency/transaction_manager.cpp > CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.i
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/concurrency/transaction_manager.cpp > CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.i
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/concurrency/transaction_manager.cpp -o CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.s
+	cd /home/szzz/bustub/build_rel/src/concurrency && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/concurrency/transaction_manager.cpp -o CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.s
 
 bustub_concurrency: src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o
 bustub_concurrency: src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o
@@ -107,10 +107,10 @@ src/concurrency/CMakeFiles/bustub_concurrency.dir/build: bustub_concurrency
 .PHONY : src/concurrency/CMakeFiles/bustub_concurrency.dir/build
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/src/concurrency && $(CMAKE_COMMAND) -P CMakeFiles/bustub_concurrency.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/src/concurrency && $(CMAKE_COMMAND) -P CMakeFiles/bustub_concurrency.dir/cmake_clean.cmake
 .PHONY : src/concurrency/CMakeFiles/bustub_concurrency.dir/clean
 
 src/concurrency/CMakeFiles/bustub_concurrency.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/src/concurrency /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/src/concurrency /home/szzz/bustub-2023spring/build_rel/src/concurrency/CMakeFiles/bustub_concurrency.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/src/concurrency /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/src/concurrency /home/szzz/bustub/build_rel/src/concurrency/CMakeFiles/bustub_concurrency.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/concurrency/CMakeFiles/bustub_concurrency.dir/depend
 

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include src/primer/CMakeFiles/bustub_primer.dir/depend.make
@@ -72,30 +72,30 @@ include src/primer/CMakeFiles/bustub_primer.dir/flags.make
 src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o: src/primer/CMakeFiles/bustub_primer.dir/flags.make
 src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o: ../src/primer/trie.cpp
 src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o: src/primer/CMakeFiles/bustub_primer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o -MF CMakeFiles/bustub_primer.dir/trie.cpp.o.d -o CMakeFiles/bustub_primer.dir/trie.cpp.o -c /home/szzz/bustub-2023spring/src/primer/trie.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o -MF CMakeFiles/bustub_primer.dir/trie.cpp.o.d -o CMakeFiles/bustub_primer.dir/trie.cpp.o -c /home/szzz/bustub/src/primer/trie.cpp
 
 src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_primer.dir/trie.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/primer/trie.cpp > CMakeFiles/bustub_primer.dir/trie.cpp.i
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/primer/trie.cpp > CMakeFiles/bustub_primer.dir/trie.cpp.i
 
 src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_primer.dir/trie.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/primer/trie.cpp -o CMakeFiles/bustub_primer.dir/trie.cpp.s
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/primer/trie.cpp -o CMakeFiles/bustub_primer.dir/trie.cpp.s
 
 src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o: src/primer/CMakeFiles/bustub_primer.dir/flags.make
 src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o: ../src/primer/trie_store.cpp
 src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o: src/primer/CMakeFiles/bustub_primer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o -MF CMakeFiles/bustub_primer.dir/trie_store.cpp.o.d -o CMakeFiles/bustub_primer.dir/trie_store.cpp.o -c /home/szzz/bustub-2023spring/src/primer/trie_store.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o -MF CMakeFiles/bustub_primer.dir/trie_store.cpp.o.d -o CMakeFiles/bustub_primer.dir/trie_store.cpp.o -c /home/szzz/bustub/src/primer/trie_store.cpp
 
 src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_primer.dir/trie_store.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/primer/trie_store.cpp > CMakeFiles/bustub_primer.dir/trie_store.cpp.i
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/primer/trie_store.cpp > CMakeFiles/bustub_primer.dir/trie_store.cpp.i
 
 src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_primer.dir/trie_store.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/primer/trie_store.cpp -o CMakeFiles/bustub_primer.dir/trie_store.cpp.s
+	cd /home/szzz/bustub/build_rel/src/primer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/primer/trie_store.cpp -o CMakeFiles/bustub_primer.dir/trie_store.cpp.s
 
 bustub_primer: src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o
 bustub_primer: src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o
@@ -107,10 +107,10 @@ src/primer/CMakeFiles/bustub_primer.dir/build: bustub_primer
 .PHONY : src/primer/CMakeFiles/bustub_primer.dir/build
 
 src/primer/CMakeFiles/bustub_primer.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/src/primer && $(CMAKE_COMMAND) -P CMakeFiles/bustub_primer.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/src/primer && $(CMAKE_COMMAND) -P CMakeFiles/bustub_primer.dir/cmake_clean.cmake
 .PHONY : src/primer/CMakeFiles/bustub_primer.dir/clean
 
 src/primer/CMakeFiles/bustub_primer.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/src/primer /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/src/primer /home/szzz/bustub-2023spring/build_rel/src/primer/CMakeFiles/bustub_primer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/src/primer /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/src/primer /home/szzz/bustub/build_rel/src/primer/CMakeFiles/bustub_primer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/primer/CMakeFiles/bustub_primer.dir/depend
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/tools/terrier_bench
+# Install script for directory: /home/szzz/bustub/tools/terrier_bench
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

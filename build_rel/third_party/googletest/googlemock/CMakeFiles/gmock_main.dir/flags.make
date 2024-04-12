@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/szzz/bustub-2023spring/src -I/home/szzz/bustub-2023spring/src/include -I/home/szzz/bustub-2023spring/test/include -I/home/szzz/bustub-2023spring/third_party -I/home/szzz/bustub-2023spring/third_party/fmt/include -I/home/szzz/bustub-2023spring/third_party/libpg_query/include -I/home/szzz/bustub-2023spring/third_party/argparse/include -I/home/szzz/bustub-2023spring/third_party/cpp_random_distributions -isystem /home/szzz/bustub-2023spring/third_party/googletest/googlemock/include -isystem /home/szzz/bustub-2023spring/third_party/googletest/googlemock -isystem /home/szzz/bustub-2023spring/third_party/googletest/googletest/include -isystem /home/szzz/bustub-2023spring/third_party/googletest/googletest
+CXX_INCLUDES = -I/home/szzz/bustub/src -I/home/szzz/bustub/src/include -I/home/szzz/bustub/test/include -I/home/szzz/bustub/third_party -I/home/szzz/bustub/third_party/fmt/include -I/home/szzz/bustub/third_party/libpg_query/include -I/home/szzz/bustub/third_party/argparse/include -I/home/szzz/bustub/third_party/cpp_random_distributions -isystem /home/szzz/bustub/third_party/googletest/googlemock/include -isystem /home/szzz/bustub/third_party/googletest/googlemock -isystem /home/szzz/bustub/third_party/googletest/googletest/include -isystem /home/szzz/bustub/third_party/googletest/googletest
 
 CXX_FLAGS = -O3 -DNDEBUG -fPIC -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
 

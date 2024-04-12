@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/tools/btree_bench
+# Install script for directory: /home/szzz/bustub/tools/btree_bench
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

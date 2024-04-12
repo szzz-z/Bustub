@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/src
+# Install script for directory: /home/szzz/bustub/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,19 +44,19 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/szzz/bustub-2023spring/build_rel/src/binder/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/buffer/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/catalog/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/common/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/concurrency/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/container/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/execution/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/recovery/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/storage/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/type/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/planner/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/primer/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/optimizer/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/binder/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/buffer/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/catalog/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/common/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/concurrency/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/container/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/execution/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/recovery/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/storage/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/type/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/planner/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/primer/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/optimizer/cmake_install.cmake")
 
 endif()
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/third_party
+# Install script for directory: /home/szzz/bustub/third_party
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,14 +44,14 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/murmur3/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/libpg_query/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/googletest/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/fmt/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/linenoise/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/libfort/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/argparse/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/third_party/utf8proc/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/murmur3/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/libpg_query/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/googletest/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/fmt/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/linenoise/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/libfort/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/argparse/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/third_party/utf8proc/cmake_install.cmake")
 
 endif()
 

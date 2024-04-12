@@ -45,14 +45,14 @@ unset(_expectedTargets)
 add_library(fort STATIC IMPORTED)
 
 set_target_properties(fort PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "/home/szzz/bustub-2023spring/third_party/libfort/lib"
+  INTERFACE_INCLUDE_DIRECTORIES "/home/szzz/bustub/third_party/libfort/lib"
 )
 
 # Import target "fort" for configuration "Release"
 set_property(TARGET fort APPEND PROPERTY IMPORTED_CONFIGURATIONS RELEASE)
 set_target_properties(fort PROPERTIES
   IMPORTED_LINK_INTERFACE_LANGUAGES_RELEASE "C"
-  IMPORTED_LOCATION_RELEASE "/home/szzz/bustub-2023spring/build_rel/lib/libfort.a"
+  IMPORTED_LOCATION_RELEASE "/home/szzz/bustub/build_rel/lib/libfort.a"
   )
 
 # This file does not depend on other imported targets which have

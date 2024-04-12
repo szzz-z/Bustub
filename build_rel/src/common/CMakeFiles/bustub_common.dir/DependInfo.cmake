@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/common/bustub_ddl.cpp" "src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/common/bustub_instance.cpp" "src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/common/config.cpp" "src/common/CMakeFiles/bustub_common.dir/config.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/config.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/common/util/string_util.cpp" "src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o.d"
+  "/home/szzz/bustub/src/common/bustub_ddl.cpp" "src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o.d"
+  "/home/szzz/bustub/src/common/bustub_instance.cpp" "src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o.d"
+  "/home/szzz/bustub/src/common/config.cpp" "src/common/CMakeFiles/bustub_common.dir/config.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/config.cpp.o.d"
+  "/home/szzz/bustub/src/common/util/string_util.cpp" "src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o" "gcc" "src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o.d"
   )
 
 # Targets to which this target links.

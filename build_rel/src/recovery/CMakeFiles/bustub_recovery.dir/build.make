@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include src/recovery/CMakeFiles/bustub_recovery.dir/depend.make
@@ -72,30 +72,30 @@ include src/recovery/CMakeFiles/bustub_recovery.dir/flags.make
 src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o: src/recovery/CMakeFiles/bustub_recovery.dir/flags.make
 src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o: ../src/recovery/checkpoint_manager.cpp
 src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o: src/recovery/CMakeFiles/bustub_recovery.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o -MF CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o.d -o CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o -c /home/szzz/bustub-2023spring/src/recovery/checkpoint_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o -MF CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o.d -o CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o -c /home/szzz/bustub/src/recovery/checkpoint_manager.cpp
 
 src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/recovery/checkpoint_manager.cpp > CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.i
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/recovery/checkpoint_manager.cpp > CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.i
 
 src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/recovery/checkpoint_manager.cpp -o CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.s
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/recovery/checkpoint_manager.cpp -o CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.s
 
 src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o: src/recovery/CMakeFiles/bustub_recovery.dir/flags.make
 src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o: ../src/recovery/log_manager.cpp
 src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o: src/recovery/CMakeFiles/bustub_recovery.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o -MF CMakeFiles/bustub_recovery.dir/log_manager.cpp.o.d -o CMakeFiles/bustub_recovery.dir/log_manager.cpp.o -c /home/szzz/bustub-2023spring/src/recovery/log_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o -MF CMakeFiles/bustub_recovery.dir/log_manager.cpp.o.d -o CMakeFiles/bustub_recovery.dir/log_manager.cpp.o -c /home/szzz/bustub/src/recovery/log_manager.cpp
 
 src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_recovery.dir/log_manager.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/recovery/log_manager.cpp > CMakeFiles/bustub_recovery.dir/log_manager.cpp.i
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/recovery/log_manager.cpp > CMakeFiles/bustub_recovery.dir/log_manager.cpp.i
 
 src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_recovery.dir/log_manager.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/recovery/log_manager.cpp -o CMakeFiles/bustub_recovery.dir/log_manager.cpp.s
+	cd /home/szzz/bustub/build_rel/src/recovery && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/recovery/log_manager.cpp -o CMakeFiles/bustub_recovery.dir/log_manager.cpp.s
 
 bustub_recovery: src/recovery/CMakeFiles/bustub_recovery.dir/checkpoint_manager.cpp.o
 bustub_recovery: src/recovery/CMakeFiles/bustub_recovery.dir/log_manager.cpp.o
@@ -107,10 +107,10 @@ src/recovery/CMakeFiles/bustub_recovery.dir/build: bustub_recovery
 .PHONY : src/recovery/CMakeFiles/bustub_recovery.dir/build
 
 src/recovery/CMakeFiles/bustub_recovery.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/src/recovery && $(CMAKE_COMMAND) -P CMakeFiles/bustub_recovery.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/src/recovery && $(CMAKE_COMMAND) -P CMakeFiles/bustub_recovery.dir/cmake_clean.cmake
 .PHONY : src/recovery/CMakeFiles/bustub_recovery.dir/clean
 
 src/recovery/CMakeFiles/bustub_recovery.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/src/recovery /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/src/recovery /home/szzz/bustub-2023spring/build_rel/src/recovery/CMakeFiles/bustub_recovery.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/src/recovery /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/src/recovery /home/szzz/bustub/build_rel/src/recovery/CMakeFiles/bustub_recovery.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/recovery/CMakeFiles/bustub_recovery.dir/depend
 

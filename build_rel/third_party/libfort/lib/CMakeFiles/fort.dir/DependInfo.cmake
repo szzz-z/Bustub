@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/third_party/libfort/lib/fort.c" "third_party/libfort/lib/CMakeFiles/fort.dir/fort.c.o" "gcc" "third_party/libfort/lib/CMakeFiles/fort.dir/fort.c.o.d"
+  "/home/szzz/bustub/third_party/libfort/lib/fort.c" "third_party/libfort/lib/CMakeFiles/fort.dir/fort.c.o" "gcc" "third_party/libfort/lib/CMakeFiles/fort.dir/fort.c.o.d"
   )
 
 # Targets to which this target links.

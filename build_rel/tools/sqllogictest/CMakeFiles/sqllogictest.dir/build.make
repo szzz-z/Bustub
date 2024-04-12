@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include tools/sqllogictest/CMakeFiles/sqllogictest.dir/depend.make
@@ -72,30 +72,30 @@ include tools/sqllogictest/CMakeFiles/sqllogictest.dir/flags.make
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o: tools/sqllogictest/CMakeFiles/sqllogictest.dir/flags.make
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o: ../tools/sqllogictest/sqllogictest.cpp
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o: tools/sqllogictest/CMakeFiles/sqllogictest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o -MF CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o.d -o CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o -c /home/szzz/bustub-2023spring/tools/sqllogictest/sqllogictest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o"
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o -MF CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o.d -o CMakeFiles/sqllogictest.dir/sqllogictest.cpp.o -c /home/szzz/bustub/tools/sqllogictest/sqllogictest.cpp
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sqllogictest.dir/sqllogictest.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/tools/sqllogictest/sqllogictest.cpp > CMakeFiles/sqllogictest.dir/sqllogictest.cpp.i
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/tools/sqllogictest/sqllogictest.cpp > CMakeFiles/sqllogictest.dir/sqllogictest.cpp.i
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/sqllogictest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sqllogictest.dir/sqllogictest.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/tools/sqllogictest/sqllogictest.cpp -o CMakeFiles/sqllogictest.dir/sqllogictest.cpp.s
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/tools/sqllogictest/sqllogictest.cpp -o CMakeFiles/sqllogictest.dir/sqllogictest.cpp.s
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o: tools/sqllogictest/CMakeFiles/sqllogictest.dir/flags.make
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o: ../tools/sqllogictest/parser.cpp
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o: tools/sqllogictest/CMakeFiles/sqllogictest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o -MF CMakeFiles/sqllogictest.dir/parser.cpp.o.d -o CMakeFiles/sqllogictest.dir/parser.cpp.o -c /home/szzz/bustub-2023spring/tools/sqllogictest/parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o"
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.o -MF CMakeFiles/sqllogictest.dir/parser.cpp.o.d -o CMakeFiles/sqllogictest.dir/parser.cpp.o -c /home/szzz/bustub/tools/sqllogictest/parser.cpp
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sqllogictest.dir/parser.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/tools/sqllogictest/parser.cpp > CMakeFiles/sqllogictest.dir/parser.cpp.i
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/tools/sqllogictest/parser.cpp > CMakeFiles/sqllogictest.dir/parser.cpp.i
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sqllogictest.dir/parser.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/tools/sqllogictest/parser.cpp -o CMakeFiles/sqllogictest.dir/parser.cpp.s
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/tools/sqllogictest/parser.cpp -o CMakeFiles/sqllogictest.dir/parser.cpp.s
 
 # Object files for target sqllogictest
 sqllogictest_OBJECTS = \
@@ -114,18 +114,18 @@ bin/bustub-sqllogictest: lib/libduckdb_pg_query.a
 bin/bustub-sqllogictest: lib/libfmt.a
 bin/bustub-sqllogictest: lib/libfort.a
 bin/bustub-sqllogictest: tools/sqllogictest/CMakeFiles/sqllogictest.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/bustub-sqllogictest"
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sqllogictest.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../../bin/bustub-sqllogictest"
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sqllogictest.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/build: bin/bustub-sqllogictest
 .PHONY : tools/sqllogictest/CMakeFiles/sqllogictest.dir/build
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest && $(CMAKE_COMMAND) -P CMakeFiles/sqllogictest.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/tools/sqllogictest && $(CMAKE_COMMAND) -P CMakeFiles/sqllogictest.dir/cmake_clean.cmake
 .PHONY : tools/sqllogictest/CMakeFiles/sqllogictest.dir/clean
 
 tools/sqllogictest/CMakeFiles/sqllogictest.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/tools/sqllogictest /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest /home/szzz/bustub-2023spring/build_rel/tools/sqllogictest/CMakeFiles/sqllogictest.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/tools/sqllogictest /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/tools/sqllogictest /home/szzz/bustub/build_rel/tools/sqllogictest/CMakeFiles/sqllogictest.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tools/sqllogictest/CMakeFiles/sqllogictest.dir/depend
 

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/szzz/bustub-2023spring/src -I/home/szzz/bustub-2023spring/src/include -I/home/szzz/bustub-2023spring/test/include -I/home/szzz/bustub-2023spring/third_party -I/home/szzz/bustub-2023spring/third_party/fmt/include -I/home/szzz/bustub-2023spring/third_party/libpg_query/include -I/home/szzz/bustub-2023spring/third_party/argparse/include -I/home/szzz/bustub-2023spring/third_party/cpp_random_distributions
+CXX_INCLUDES = -I/home/szzz/bustub/src -I/home/szzz/bustub/src/include -I/home/szzz/bustub/test/include -I/home/szzz/bustub/third_party -I/home/szzz/bustub/third_party/fmt/include -I/home/szzz/bustub/third_party/libpg_query/include -I/home/szzz/bustub/third_party/argparse/include -I/home/szzz/bustub/third_party/cpp_random_distributions
 
 CXX_FLAGS = -O3 -DNDEBUG -fPIC -std=gnu++17
 

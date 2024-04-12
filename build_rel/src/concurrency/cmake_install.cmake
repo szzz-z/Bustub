@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/src/concurrency
+# Install script for directory: /home/szzz/bustub/src/concurrency
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

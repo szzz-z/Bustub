@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub-2023spring/build_rel/CPackSourceConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub/build_rel/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -162,14 +162,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles /home/szzz/bustub-2023spring/build_rel/src/common//CMakeFiles/progress.marks
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles /home/szzz/bustub/build_rel/src/common//CMakeFiles/progress.marks
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/clean
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +178,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/common/CMakeFiles/bustub_common.dir/rule:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/CMakeFiles/bustub_common.dir/rule
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/common/CMakeFiles/bustub_common.dir/rule
 .PHONY : src/common/CMakeFiles/bustub_common.dir/rule
 
 # Convenience name for target.
@@ -202,7 +202,7 @@ bustub_common: src/common/CMakeFiles/bustub_common.dir/rule
 
 # fast build rule for target.
 bustub_common/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/build
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/build
 .PHONY : bustub_common/fast
 
 bustub_ddl.o: bustub_ddl.cpp.o
@@ -210,7 +210,7 @@ bustub_ddl.o: bustub_ddl.cpp.o
 
 # target to build an object file
 bustub_ddl.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.o
 .PHONY : bustub_ddl.cpp.o
 
 bustub_ddl.i: bustub_ddl.cpp.i
@@ -218,7 +218,7 @@ bustub_ddl.i: bustub_ddl.cpp.i
 
 # target to preprocess a source file
 bustub_ddl.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.i
 .PHONY : bustub_ddl.cpp.i
 
 bustub_ddl.s: bustub_ddl.cpp.s
@@ -226,7 +226,7 @@ bustub_ddl.s: bustub_ddl.cpp.s
 
 # target to generate assembly for a file
 bustub_ddl.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_ddl.cpp.s
 .PHONY : bustub_ddl.cpp.s
 
 bustub_instance.o: bustub_instance.cpp.o
@@ -234,7 +234,7 @@ bustub_instance.o: bustub_instance.cpp.o
 
 # target to build an object file
 bustub_instance.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.o
 .PHONY : bustub_instance.cpp.o
 
 bustub_instance.i: bustub_instance.cpp.i
@@ -242,7 +242,7 @@ bustub_instance.i: bustub_instance.cpp.i
 
 # target to preprocess a source file
 bustub_instance.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.i
 .PHONY : bustub_instance.cpp.i
 
 bustub_instance.s: bustub_instance.cpp.s
@@ -250,7 +250,7 @@ bustub_instance.s: bustub_instance.cpp.s
 
 # target to generate assembly for a file
 bustub_instance.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/bustub_instance.cpp.s
 .PHONY : bustub_instance.cpp.s
 
 config.o: config.cpp.o
@@ -258,7 +258,7 @@ config.o: config.cpp.o
 
 # target to build an object file
 config.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.o
 .PHONY : config.cpp.o
 
 config.i: config.cpp.i
@@ -266,7 +266,7 @@ config.i: config.cpp.i
 
 # target to preprocess a source file
 config.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.i
 .PHONY : config.cpp.i
 
 config.s: config.cpp.s
@@ -274,7 +274,7 @@ config.s: config.cpp.s
 
 # target to generate assembly for a file
 config.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/config.cpp.s
 .PHONY : config.cpp.s
 
 util/string_util.o: util/string_util.cpp.o
@@ -282,7 +282,7 @@ util/string_util.o: util/string_util.cpp.o
 
 # target to build an object file
 util/string_util.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.o
 .PHONY : util/string_util.cpp.o
 
 util/string_util.i: util/string_util.cpp.i
@@ -290,7 +290,7 @@ util/string_util.i: util/string_util.cpp.i
 
 # target to preprocess a source file
 util/string_util.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.i
 .PHONY : util/string_util.cpp.i
 
 util/string_util.s: util/string_util.cpp.s
@@ -298,7 +298,7 @@ util/string_util.s: util/string_util.cpp.s
 
 # target to generate assembly for a file
 util/string_util.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/common/CMakeFiles/bustub_common.dir/build.make src/common/CMakeFiles/bustub_common.dir/util/string_util.cpp.s
 .PHONY : util/string_util.cpp.s
 
 # Help Target
@@ -340,6 +340,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

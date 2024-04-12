@@ -1,5 +1,5 @@
-if(EXISTS "/home/szzz/bustub-2023spring/build_rel/test/tmp_tuple_page_test[1]_tests.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/test/tmp_tuple_page_test[1]_tests.cmake")
+if(EXISTS "/home/szzz/bustub/build_rel/test/tmp_tuple_page_test[1]_tests.cmake")
+  include("/home/szzz/bustub/build_rel/test/tmp_tuple_page_test[1]_tests.cmake")
 else()
   add_test(tmp_tuple_page_test_NOT_BUILT tmp_tuple_page_test_NOT_BUILT)
 endif()

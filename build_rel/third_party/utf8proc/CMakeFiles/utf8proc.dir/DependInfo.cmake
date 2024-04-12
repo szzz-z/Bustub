@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/third_party/utf8proc/utf8proc.c" "third_party/utf8proc/CMakeFiles/utf8proc.dir/utf8proc.c.o" "gcc" "third_party/utf8proc/CMakeFiles/utf8proc.dir/utf8proc.c.o.d"
+  "/home/szzz/bustub/third_party/utf8proc/utf8proc.c" "third_party/utf8proc/CMakeFiles/utf8proc.dir/utf8proc.c.o" "gcc" "third_party/utf8proc/CMakeFiles/utf8proc.dir/utf8proc.c.o.d"
   )
 
 # Targets to which this target links.

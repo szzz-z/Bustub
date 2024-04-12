@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub-2023spring/build_rel/CPackSourceConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub/build_rel/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -162,14 +162,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles /home/szzz/bustub-2023spring/build_rel/tools/bpm_bench//CMakeFiles/progress.marks
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles /home/szzz/bustub/build_rel/tools/bpm_bench//CMakeFiles/progress.marks
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/clean
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +178,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tools/bpm_bench/CMakeFiles/bpm-bench.dir/rule:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/CMakeFiles/bpm-bench.dir/rule
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/bpm_bench/CMakeFiles/bpm-bench.dir/rule
 .PHONY : tools/bpm_bench/CMakeFiles/bpm-bench.dir/rule
 
 # Convenience name for target.
@@ -202,7 +202,7 @@ bpm-bench: tools/bpm_bench/CMakeFiles/bpm-bench.dir/rule
 
 # fast build rule for target.
 bpm-bench/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/build
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/build
 .PHONY : bpm-bench/fast
 
 bpm_bench.o: bpm_bench.cpp.o
@@ -210,7 +210,7 @@ bpm_bench.o: bpm_bench.cpp.o
 
 # target to build an object file
 bpm_bench.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.o
 .PHONY : bpm_bench.cpp.o
 
 bpm_bench.i: bpm_bench.cpp.i
@@ -218,7 +218,7 @@ bpm_bench.i: bpm_bench.cpp.i
 
 # target to preprocess a source file
 bpm_bench.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.i
 .PHONY : bpm_bench.cpp.i
 
 bpm_bench.s: bpm_bench.cpp.s
@@ -226,7 +226,7 @@ bpm_bench.s: bpm_bench.cpp.s
 
 # target to generate assembly for a file
 bpm_bench.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f tools/bpm_bench/CMakeFiles/bpm-bench.dir/build.make tools/bpm_bench/CMakeFiles/bpm-bench.dir/bpm_bench.cpp.s
 .PHONY : bpm_bench.cpp.s
 
 # Help Target
@@ -259,6 +259,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/third_party/murmur3/MurmurHash3.cpp" "third_party/murmur3/CMakeFiles/bustub_murmur3.dir/MurmurHash3.cpp.o" "gcc" "third_party/murmur3/CMakeFiles/bustub_murmur3.dir/MurmurHash3.cpp.o.d"
+  "/home/szzz/bustub/third_party/murmur3/MurmurHash3.cpp" "third_party/murmur3/CMakeFiles/bustub_murmur3.dir/MurmurHash3.cpp.o" "gcc" "third_party/murmur3/CMakeFiles/bustub_murmur3.dir/MurmurHash3.cpp.o.d"
   )
 
 # Targets to which this target links.

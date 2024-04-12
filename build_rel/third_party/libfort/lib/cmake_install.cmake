@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/third_party/libfort/lib
+# Install script for directory: /home/szzz/bustub/third_party/libfort/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -43,24 +43,24 @@ if(NOT DEFINED CMAKE_OBJDUMP)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/szzz/bustub-2023spring/build_rel/lib/libfort.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/szzz/bustub/build_rel/lib/libfort.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/szzz/bustub-2023spring/third_party/libfort/lib/fort.h"
-    "/home/szzz/bustub-2023spring/third_party/libfort/lib/fort.hpp"
+    "/home/szzz/bustub/third_party/libfort/lib/fort.h"
+    "/home/szzz/bustub/third_party/libfort/lib/fort.hpp"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/libfort.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/szzz/bustub/build_rel/third_party/libfort/lib/libfort.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort" TYPE FILE FILES
-    "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/libfort-config.cmake"
-    "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/libfort-config-version.cmake"
+    "/home/szzz/bustub/build_rel/third_party/libfort/lib/libfort-config.cmake"
+    "/home/szzz/bustub/build_rel/third_party/libfort/lib/libfort-config-version.cmake"
     )
 endif()
 
@@ -68,7 +68,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort/libfort-targets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort/libfort-targets.cmake"
-         "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets.cmake")
+         "/home/szzz/bustub/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort/libfort-targets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -77,9 +77,9 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort" TYPE FILE FILES "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort" TYPE FILE FILES "/home/szzz/bustub/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort" TYPE FILE FILES "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets-release.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/libfort" TYPE FILE FILES "/home/szzz/bustub/build_rel/third_party/libfort/lib/CMakeFiles/Export/lib/cmake/libfort/libfort-targets-release.cmake")
   endif()
 endif()
 

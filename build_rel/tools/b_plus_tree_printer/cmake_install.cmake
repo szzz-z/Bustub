@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/tools/b_plus_tree_printer
+# Install script for directory: /home/szzz/bustub/tools/b_plus_tree_printer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

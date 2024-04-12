@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/src/storage
+# Install script for directory: /home/szzz/bustub/src/storage
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,10 +44,10 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/szzz/bustub-2023spring/build_rel/src/storage/disk/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/storage/index/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/storage/page/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/src/storage/table/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/storage/disk/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/storage/index/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/storage/page/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/src/storage/table/cmake_install.cmake")
 
 endif()
 

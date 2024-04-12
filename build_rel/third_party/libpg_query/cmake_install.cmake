@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/third_party/libpg_query
+# Install script for directory: /home/szzz/bustub/third_party/libpg_query
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/tools/wasm-bpt-printer
+# Install script for directory: /home/szzz/bustub/tools/wasm-bpt-printer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

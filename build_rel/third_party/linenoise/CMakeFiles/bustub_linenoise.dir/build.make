@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include third_party/linenoise/CMakeFiles/bustub_linenoise.dir/depend.make
@@ -72,16 +72,16 @@ include third_party/linenoise/CMakeFiles/bustub_linenoise.dir/flags.make
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o: third_party/linenoise/CMakeFiles/bustub_linenoise.dir/flags.make
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o: ../third_party/linenoise/linenoise.c
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o: third_party/linenoise/CMakeFiles/bustub_linenoise.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o"
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o -MF CMakeFiles/bustub_linenoise.dir/linenoise.c.o.d -o CMakeFiles/bustub_linenoise.dir/linenoise.c.o -c /home/szzz/bustub-2023spring/third_party/linenoise/linenoise.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o"
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o -MF CMakeFiles/bustub_linenoise.dir/linenoise.c.o.d -o CMakeFiles/bustub_linenoise.dir/linenoise.c.o -c /home/szzz/bustub/third_party/linenoise/linenoise.c
 
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/bustub_linenoise.dir/linenoise.c.i"
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/szzz/bustub-2023spring/third_party/linenoise/linenoise.c > CMakeFiles/bustub_linenoise.dir/linenoise.c.i
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/szzz/bustub/third_party/linenoise/linenoise.c > CMakeFiles/bustub_linenoise.dir/linenoise.c.i
 
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/bustub_linenoise.dir/linenoise.c.s"
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/szzz/bustub-2023spring/third_party/linenoise/linenoise.c -o CMakeFiles/bustub_linenoise.dir/linenoise.c.s
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/szzz/bustub/third_party/linenoise/linenoise.c -o CMakeFiles/bustub_linenoise.dir/linenoise.c.s
 
 # Object files for target bustub_linenoise
 bustub_linenoise_OBJECTS = \
@@ -93,19 +93,19 @@ bustub_linenoise_EXTERNAL_OBJECTS =
 lib/libbustub_linenoise.a: third_party/linenoise/CMakeFiles/bustub_linenoise.dir/linenoise.c.o
 lib/libbustub_linenoise.a: third_party/linenoise/CMakeFiles/bustub_linenoise.dir/build.make
 lib/libbustub_linenoise.a: third_party/linenoise/CMakeFiles/bustub_linenoise.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../lib/libbustub_linenoise.a"
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -P CMakeFiles/bustub_linenoise.dir/cmake_clean_target.cmake
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bustub_linenoise.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library ../../lib/libbustub_linenoise.a"
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -P CMakeFiles/bustub_linenoise.dir/cmake_clean_target.cmake
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bustub_linenoise.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/build: lib/libbustub_linenoise.a
 .PHONY : third_party/linenoise/CMakeFiles/bustub_linenoise.dir/build
 
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -P CMakeFiles/bustub_linenoise.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/third_party/linenoise && $(CMAKE_COMMAND) -P CMakeFiles/bustub_linenoise.dir/cmake_clean.cmake
 .PHONY : third_party/linenoise/CMakeFiles/bustub_linenoise.dir/clean
 
 third_party/linenoise/CMakeFiles/bustub_linenoise.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/third_party/linenoise /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/third_party/linenoise /home/szzz/bustub-2023spring/build_rel/third_party/linenoise/CMakeFiles/bustub_linenoise.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/third_party/linenoise /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/third_party/linenoise /home/szzz/bustub/build_rel/third_party/linenoise/CMakeFiles/bustub_linenoise.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : third_party/linenoise/CMakeFiles/bustub_linenoise.dir/depend
 

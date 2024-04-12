@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/storage/table/table_heap.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_heap.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_heap.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/table/table_iterator.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_iterator.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_iterator.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/table/tuple.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/tuple.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/tuple.cpp.o.d"
+  "/home/szzz/bustub/src/storage/table/table_heap.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_heap.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_heap.cpp.o.d"
+  "/home/szzz/bustub/src/storage/table/table_iterator.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_iterator.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/table_iterator.cpp.o.d"
+  "/home/szzz/bustub/src/storage/table/tuple.cpp" "src/storage/table/CMakeFiles/bustub_storage_table.dir/tuple.cpp.o" "gcc" "src/storage/table/CMakeFiles/bustub_storage_table.dir/tuple.cpp.o.d"
   )
 
 # Targets to which this target links.

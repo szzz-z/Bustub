@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/storage/index/b_plus_tree.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/index/b_plus_tree_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree_index.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/index/extendible_hash_table_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/extendible_hash_table_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/extendible_hash_table_index.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/index/index_iterator.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/index_iterator.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/index_iterator.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/storage/index/linear_probe_hash_table_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/linear_probe_hash_table_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/linear_probe_hash_table_index.cpp.o.d"
+  "/home/szzz/bustub/src/storage/index/b_plus_tree.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree.cpp.o.d"
+  "/home/szzz/bustub/src/storage/index/b_plus_tree_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/b_plus_tree_index.cpp.o.d"
+  "/home/szzz/bustub/src/storage/index/extendible_hash_table_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/extendible_hash_table_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/extendible_hash_table_index.cpp.o.d"
+  "/home/szzz/bustub/src/storage/index/index_iterator.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/index_iterator.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/index_iterator.cpp.o.d"
+  "/home/szzz/bustub/src/storage/index/linear_probe_hash_table_index.cpp" "src/storage/index/CMakeFiles/bustub_storage_index.dir/linear_probe_hash_table_index.cpp.o" "gcc" "src/storage/index/CMakeFiles/bustub_storage_index.dir/linear_probe_hash_table_index.cpp.o.d"
   )
 
 # Targets to which this target links.

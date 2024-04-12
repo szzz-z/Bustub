@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Include any dependencies generated for this target.
 include src/buffer/CMakeFiles/bustub_buffer.dir/depend.make
@@ -72,58 +72,58 @@ include src/buffer/CMakeFiles/bustub_buffer.dir/flags.make
 src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/flags.make
 src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o: ../src/buffer/buffer_pool_manager.cpp
 src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o -MF CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o.d -o CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o -c /home/szzz/bustub-2023spring/src/buffer/buffer_pool_manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o -MF CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o.d -o CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o -c /home/szzz/bustub/src/buffer/buffer_pool_manager.cpp
 
 src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/buffer/buffer_pool_manager.cpp > CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.i
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/buffer/buffer_pool_manager.cpp > CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.i
 
 src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/buffer/buffer_pool_manager.cpp -o CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.s
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/buffer/buffer_pool_manager.cpp -o CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.s
 
 src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/flags.make
 src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o: ../src/buffer/clock_replacer.cpp
 src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o -c /home/szzz/bustub-2023spring/src/buffer/clock_replacer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o -c /home/szzz/bustub/src/buffer/clock_replacer.cpp
 
 src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/buffer/clock_replacer.cpp > CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.i
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/buffer/clock_replacer.cpp > CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.i
 
 src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/buffer/clock_replacer.cpp -o CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.s
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/buffer/clock_replacer.cpp -o CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.s
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/flags.make
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o: ../src/buffer/lru_replacer.cpp
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o -c /home/szzz/bustub-2023spring/src/buffer/lru_replacer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.o -c /home/szzz/bustub/src/buffer/lru_replacer.cpp
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/buffer/lru_replacer.cpp > CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.i
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/buffer/lru_replacer.cpp > CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.i
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/buffer/lru_replacer.cpp -o CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.s
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/buffer/lru_replacer.cpp -o CMakeFiles/bustub_buffer.dir/lru_replacer.cpp.s
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/flags.make
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o: ../src/buffer/lru_k_replacer.cpp
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o: src/buffer/CMakeFiles/bustub_buffer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub-2023spring/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o -c /home/szzz/bustub-2023spring/src/buffer/lru_k_replacer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/szzz/bustub/build_rel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o"
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o -MF CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o.d -o CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.o -c /home/szzz/bustub/src/buffer/lru_k_replacer.cpp
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.i"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub-2023spring/src/buffer/lru_k_replacer.cpp > CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.i
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/szzz/bustub/src/buffer/lru_k_replacer.cpp > CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.i
 
 src/buffer/CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.s"
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub-2023spring/src/buffer/lru_k_replacer.cpp -o CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.s
+	cd /home/szzz/bustub/build_rel/src/buffer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/szzz/bustub/src/buffer/lru_k_replacer.cpp -o CMakeFiles/bustub_buffer.dir/lru_k_replacer.cpp.s
 
 bustub_buffer: src/buffer/CMakeFiles/bustub_buffer.dir/buffer_pool_manager.cpp.o
 bustub_buffer: src/buffer/CMakeFiles/bustub_buffer.dir/clock_replacer.cpp.o
@@ -137,10 +137,10 @@ src/buffer/CMakeFiles/bustub_buffer.dir/build: bustub_buffer
 .PHONY : src/buffer/CMakeFiles/bustub_buffer.dir/build
 
 src/buffer/CMakeFiles/bustub_buffer.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/src/buffer && $(CMAKE_COMMAND) -P CMakeFiles/bustub_buffer.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/src/buffer && $(CMAKE_COMMAND) -P CMakeFiles/bustub_buffer.dir/cmake_clean.cmake
 .PHONY : src/buffer/CMakeFiles/bustub_buffer.dir/clean
 
 src/buffer/CMakeFiles/bustub_buffer.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/src/buffer /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/src/buffer /home/szzz/bustub-2023spring/build_rel/src/buffer/CMakeFiles/bustub_buffer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/src/buffer /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/src/buffer /home/szzz/bustub/build_rel/src/buffer/CMakeFiles/bustub_buffer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/buffer/CMakeFiles/bustub_buffer.dir/depend
 

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/szzz/bustub-2023spring/src/concurrency
-# Build directory: /home/szzz/bustub-2023spring/build_rel/src/concurrency
+# Source directory: /home/szzz/bustub/src/concurrency
+# Build directory: /home/szzz/bustub/build_rel/src/concurrency
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

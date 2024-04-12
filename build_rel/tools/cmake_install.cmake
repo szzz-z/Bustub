@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/tools
+# Install script for directory: /home/szzz/bustub/tools
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,14 +44,14 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/szzz/bustub-2023spring/build_rel/tools/shell/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/sqllogictest/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/wasm-shell/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/b_plus_tree_printer/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/wasm-bpt-printer/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/terrier_bench/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/bpm_bench/cmake_install.cmake")
-  include("/home/szzz/bustub-2023spring/build_rel/tools/btree_bench/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/shell/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/sqllogictest/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/wasm-shell/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/b_plus_tree_printer/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/wasm-bpt-printer/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/terrier_bench/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/bpm_bench/cmake_install.cmake")
+  include("/home/szzz/bustub/build_rel/tools/btree_bench/cmake_install.cmake")
 
 endif()
 

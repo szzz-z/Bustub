@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/szzz/bustub-2023spring/tools
-# Build directory: /home/szzz/bustub-2023spring/build_rel/tools
+# Source directory: /home/szzz/bustub/tools
+# Build directory: /home/szzz/bustub/build_rel/tools
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

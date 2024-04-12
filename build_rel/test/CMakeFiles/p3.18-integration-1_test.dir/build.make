@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Utility rule file for p3.18-integration-1_test.
 
@@ -67,7 +67,7 @@ include test/CMakeFiles/p3.18-integration-1_test.dir/compiler_depend.make
 include test/CMakeFiles/p3.18-integration-1_test.dir/progress.make
 
 test/CMakeFiles/p3.18-integration-1_test:
-	cd /home/szzz/bustub-2023spring/build_rel/test && ../bin/bustub-sqllogictest /home/szzz/bustub-2023spring/test/sql/p3.18-integration-1.slt --verbose -d --in-memory
+	cd /home/szzz/bustub/build_rel/test && ../bin/bustub-sqllogictest /home/szzz/bustub/test/sql/p3.18-integration-1.slt --verbose -d --in-memory
 
 p3.18-integration-1_test: test/CMakeFiles/p3.18-integration-1_test
 p3.18-integration-1_test: test/CMakeFiles/p3.18-integration-1_test.dir/build.make
@@ -78,10 +78,10 @@ test/CMakeFiles/p3.18-integration-1_test.dir/build: p3.18-integration-1_test
 .PHONY : test/CMakeFiles/p3.18-integration-1_test.dir/build
 
 test/CMakeFiles/p3.18-integration-1_test.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/test && $(CMAKE_COMMAND) -P CMakeFiles/p3.18-integration-1_test.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/test && $(CMAKE_COMMAND) -P CMakeFiles/p3.18-integration-1_test.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/p3.18-integration-1_test.dir/clean
 
 test/CMakeFiles/p3.18-integration-1_test.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/test /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/test /home/szzz/bustub-2023spring/build_rel/test/CMakeFiles/p3.18-integration-1_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/test /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/test /home/szzz/bustub/build_rel/test/CMakeFiles/p3.18-integration-1_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/p3.18-integration-1_test.dir/depend
 

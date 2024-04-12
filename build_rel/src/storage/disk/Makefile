@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub-2023spring/build_rel/CPackSourceConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub/build_rel/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -162,14 +162,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles /home/szzz/bustub-2023spring/build_rel/src/storage/disk//CMakeFiles/progress.marks
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles /home/szzz/bustub/build_rel/src/storage/disk//CMakeFiles/progress.marks
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/clean
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +178,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/storage/disk/CMakeFiles/bustub_storage_disk.dir/rule:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/CMakeFiles/bustub_storage_disk.dir/rule
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/storage/disk/CMakeFiles/bustub_storage_disk.dir/rule
 .PHONY : src/storage/disk/CMakeFiles/bustub_storage_disk.dir/rule
 
 # Convenience name for target.
@@ -202,7 +202,7 @@ bustub_storage_disk: src/storage/disk/CMakeFiles/bustub_storage_disk.dir/rule
 
 # fast build rule for target.
 bustub_storage_disk/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build
 .PHONY : bustub_storage_disk/fast
 
 disk_manager.o: disk_manager.cpp.o
@@ -210,7 +210,7 @@ disk_manager.o: disk_manager.cpp.o
 
 # target to build an object file
 disk_manager.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.o
 .PHONY : disk_manager.cpp.o
 
 disk_manager.i: disk_manager.cpp.i
@@ -218,7 +218,7 @@ disk_manager.i: disk_manager.cpp.i
 
 # target to preprocess a source file
 disk_manager.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.i
 .PHONY : disk_manager.cpp.i
 
 disk_manager.s: disk_manager.cpp.s
@@ -226,7 +226,7 @@ disk_manager.s: disk_manager.cpp.s
 
 # target to generate assembly for a file
 disk_manager.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager.cpp.s
 .PHONY : disk_manager.cpp.s
 
 disk_manager_memory.o: disk_manager_memory.cpp.o
@@ -234,7 +234,7 @@ disk_manager_memory.o: disk_manager_memory.cpp.o
 
 # target to build an object file
 disk_manager_memory.cpp.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.o
 .PHONY : disk_manager_memory.cpp.o
 
 disk_manager_memory.i: disk_manager_memory.cpp.i
@@ -242,7 +242,7 @@ disk_manager_memory.i: disk_manager_memory.cpp.i
 
 # target to preprocess a source file
 disk_manager_memory.cpp.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.i
 .PHONY : disk_manager_memory.cpp.i
 
 disk_manager_memory.s: disk_manager_memory.cpp.s
@@ -250,7 +250,7 @@ disk_manager_memory.s: disk_manager_memory.cpp.s
 
 # target to generate assembly for a file
 disk_manager_memory.cpp.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f src/storage/disk/CMakeFiles/bustub_storage_disk.dir/build.make src/storage/disk/CMakeFiles/bustub_storage_disk.dir/disk_manager_memory.cpp.s
 .PHONY : disk_manager_memory.cpp.s
 
 # Help Target
@@ -286,6 +286,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

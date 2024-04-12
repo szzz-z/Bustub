@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/primer/trie.cpp" "src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o" "gcc" "src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/primer/trie_store.cpp" "src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o" "gcc" "src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o.d"
+  "/home/szzz/bustub/src/primer/trie.cpp" "src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o" "gcc" "src/primer/CMakeFiles/bustub_primer.dir/trie.cpp.o.d"
+  "/home/szzz/bustub/src/primer/trie_store.cpp" "src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o" "gcc" "src/primer/CMakeFiles/bustub_primer.dir/trie_store.cpp.o.d"
   )
 
 # Targets to which this target links.

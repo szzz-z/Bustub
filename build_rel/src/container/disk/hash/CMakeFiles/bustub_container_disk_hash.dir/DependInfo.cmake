@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/container/disk/hash/disk_extendible_hash_table.cpp" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/disk_extendible_hash_table.cpp.o" "gcc" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/disk_extendible_hash_table.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/container/disk/hash/linear_probe_hash_table.cpp" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/linear_probe_hash_table.cpp.o" "gcc" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/linear_probe_hash_table.cpp.o.d"
+  "/home/szzz/bustub/src/container/disk/hash/disk_extendible_hash_table.cpp" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/disk_extendible_hash_table.cpp.o" "gcc" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/disk_extendible_hash_table.cpp.o.d"
+  "/home/szzz/bustub/src/container/disk/hash/linear_probe_hash_table.cpp" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/linear_probe_hash_table.cpp.o" "gcc" "src/container/disk/hash/CMakeFiles/bustub_container_disk_hash.dir/linear_probe_hash_table.cpp.o.d"
   )
 
 # Targets to which this target links.

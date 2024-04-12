@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/src/optimizer
+# Install script for directory: /home/szzz/bustub/src/optimizer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Utility rule file for check-clang-tidy-diff.
 
@@ -67,7 +67,7 @@ include CMakeFiles/check-clang-tidy-diff.dir/compiler_depend.make
 include CMakeFiles/check-clang-tidy-diff.dir/progress.make
 
 CMakeFiles/check-clang-tidy-diff:
-	../build_support/run_clang_tidy.py -clang-tidy-binary /usr/bin/clang-tidy -p /home/szzz/bustub-2023spring/build_rel -only-diff
+	../build_support/run_clang_tidy.py -clang-tidy-binary /usr/bin/clang-tidy -p /home/szzz/bustub/build_rel -only-diff
 
 check-clang-tidy-diff: CMakeFiles/check-clang-tidy-diff
 check-clang-tidy-diff: CMakeFiles/check-clang-tidy-diff.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/check-clang-tidy-diff.dir/clean:
 .PHONY : CMakeFiles/check-clang-tidy-diff.dir/clean
 
 CMakeFiles/check-clang-tidy-diff.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/CMakeFiles/check-clang-tidy-diff.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/CMakeFiles/check-clang-tidy-diff.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/check-clang-tidy-diff.dir/depend
 

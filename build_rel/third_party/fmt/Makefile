@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -78,7 +78,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/szzz/bustub-2023spring/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub-2023spring/build_rel/CPackSourceConfig.cmake
+	cd /home/szzz/bustub/build_rel && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/szzz/bustub/build_rel/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -162,14 +162,14 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles /home/szzz/bustub-2023spring/build_rel/third_party/fmt//CMakeFiles/progress.marks
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub-2023spring/build_rel/CMakeFiles 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles /home/szzz/bustub/build_rel/third_party/fmt//CMakeFiles/progress.marks
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/szzz/bustub/build_rel/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/clean
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/clean
 .PHONY : clean
 
 # The main clean target
@@ -178,22 +178,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/preinstall
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 third_party/fmt/CMakeFiles/fmt.dir/rule:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/CMakeFiles/fmt.dir/rule
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/fmt/CMakeFiles/fmt.dir/rule
 .PHONY : third_party/fmt/CMakeFiles/fmt.dir/rule
 
 # Convenience name for target.
@@ -202,7 +202,7 @@ fmt: third_party/fmt/CMakeFiles/fmt.dir/rule
 
 # fast build rule for target.
 fmt/fast:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/build
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/build
 .PHONY : fmt/fast
 
 src/format.o: src/format.cc.o
@@ -210,7 +210,7 @@ src/format.o: src/format.cc.o
 
 # target to build an object file
 src/format.cc.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.o
 .PHONY : src/format.cc.o
 
 src/format.i: src/format.cc.i
@@ -218,7 +218,7 @@ src/format.i: src/format.cc.i
 
 # target to preprocess a source file
 src/format.cc.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.i
 .PHONY : src/format.cc.i
 
 src/format.s: src/format.cc.s
@@ -226,7 +226,7 @@ src/format.s: src/format.cc.s
 
 # target to generate assembly for a file
 src/format.cc.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/format.cc.s
 .PHONY : src/format.cc.s
 
 src/os.o: src/os.cc.o
@@ -234,7 +234,7 @@ src/os.o: src/os.cc.o
 
 # target to build an object file
 src/os.cc.o:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.o
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.o
 .PHONY : src/os.cc.o
 
 src/os.i: src/os.cc.i
@@ -242,7 +242,7 @@ src/os.i: src/os.cc.i
 
 # target to preprocess a source file
 src/os.cc.i:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.i
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.i
 .PHONY : src/os.cc.i
 
 src/os.s: src/os.cc.s
@@ -250,7 +250,7 @@ src/os.s: src/os.cc.s
 
 # target to generate assembly for a file
 src/os.cc.s:
-	cd /home/szzz/bustub-2023spring/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.s
+	cd /home/szzz/bustub/build_rel && $(MAKE) $(MAKESILENT) -f third_party/fmt/CMakeFiles/fmt.dir/build.make third_party/fmt/CMakeFiles/fmt.dir/src/os.cc.s
 .PHONY : src/os.cc.s
 
 # Help Target
@@ -286,6 +286,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

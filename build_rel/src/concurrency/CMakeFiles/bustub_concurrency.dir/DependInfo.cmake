@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/src/concurrency/lock_manager.cpp" "src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o" "gcc" "src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o.d"
-  "/home/szzz/bustub-2023spring/src/concurrency/transaction_manager.cpp" "src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o" "gcc" "src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o.d"
+  "/home/szzz/bustub/src/concurrency/lock_manager.cpp" "src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o" "gcc" "src/concurrency/CMakeFiles/bustub_concurrency.dir/lock_manager.cpp.o.d"
+  "/home/szzz/bustub/src/concurrency/transaction_manager.cpp" "src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o" "gcc" "src/concurrency/CMakeFiles/bustub_concurrency.dir/transaction_manager.cpp.o.d"
   )
 
 # Targets to which this target links.

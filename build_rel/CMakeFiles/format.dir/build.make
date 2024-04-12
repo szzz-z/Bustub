@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Utility rule file for format.
 
@@ -67,7 +67,7 @@ include CMakeFiles/format.dir/compiler_depend.make
 include CMakeFiles/format.dir/progress.make
 
 CMakeFiles/format:
-	../build_support/run_clang_format.py /usr/bin/clang-format /home/szzz/bustub-2023spring/build_support/clang_format_exclusions.txt --source_dirs /home/szzz/bustub-2023spring/src,/home/szzz/bustub-2023spring/test, --fix --quiet
+	../build_support/run_clang_format.py /usr/bin/clang-format /home/szzz/bustub/build_support/clang_format_exclusions.txt --source_dirs /home/szzz/bustub/src,/home/szzz/bustub/test, --fix --quiet
 
 format: CMakeFiles/format
 format: CMakeFiles/format.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/format.dir/clean:
 .PHONY : CMakeFiles/format.dir/clean
 
 CMakeFiles/format.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/CMakeFiles/format.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/CMakeFiles/format.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/format.dir/depend
 

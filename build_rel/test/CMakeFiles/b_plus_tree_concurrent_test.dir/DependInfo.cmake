@@ -8,19 +8,19 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/szzz/bustub-2023spring/test/storage/b_plus_tree_concurrent_test.cpp" "test/CMakeFiles/b_plus_tree_concurrent_test.dir/storage/b_plus_tree_concurrent_test.cpp.o" "gcc" "test/CMakeFiles/b_plus_tree_concurrent_test.dir/storage/b_plus_tree_concurrent_test.cpp.o.d"
+  "/home/szzz/bustub/test/storage/b_plus_tree_concurrent_test.cpp" "test/CMakeFiles/b_plus_tree_concurrent_test.dir/storage/b_plus_tree_concurrent_test.cpp.o" "gcc" "test/CMakeFiles/b_plus_tree_concurrent_test.dir/storage/b_plus_tree_concurrent_test.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/szzz/bustub-2023spring/build_rel/src/CMakeFiles/bustub.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/murmur3/CMakeFiles/bustub_murmur3.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/libpg_query/CMakeFiles/duckdb_pg_query.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/fmt/CMakeFiles/fmt.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/libfort/lib/CMakeFiles/fort.dir/DependInfo.cmake"
-  "/home/szzz/bustub-2023spring/build_rel/third_party/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/src/CMakeFiles/bustub.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/googletest/googlemock/CMakeFiles/gmock_main.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/murmur3/CMakeFiles/bustub_murmur3.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/libpg_query/CMakeFiles/duckdb_pg_query.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/fmt/CMakeFiles/fmt.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/libfort/lib/CMakeFiles/fort.dir/DependInfo.cmake"
+  "/home/szzz/bustub/build_rel/third_party/googletest/googlemock/CMakeFiles/gmock.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

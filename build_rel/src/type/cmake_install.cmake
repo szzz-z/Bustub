@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/src/type
+# Install script for directory: /home/szzz/bustub/src/type
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

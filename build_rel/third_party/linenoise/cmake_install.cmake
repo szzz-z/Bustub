@@ -1,4 +1,4 @@
-# Install script for directory: /home/szzz/bustub-2023spring/third_party/linenoise
+# Install script for directory: /home/szzz/bustub/third_party/linenoise
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

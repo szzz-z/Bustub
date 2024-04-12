@@ -56,10 +56,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/szzz/bustub-2023spring
+CMAKE_SOURCE_DIR = /home/szzz/bustub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/szzz/bustub-2023spring/build_rel
+CMAKE_BINARY_DIR = /home/szzz/bustub/build_rel
 
 # Utility rule file for headers.
 
@@ -77,10 +77,10 @@ third_party/libfort/CMakeFiles/headers.dir/build: headers
 .PHONY : third_party/libfort/CMakeFiles/headers.dir/build
 
 third_party/libfort/CMakeFiles/headers.dir/clean:
-	cd /home/szzz/bustub-2023spring/build_rel/third_party/libfort && $(CMAKE_COMMAND) -P CMakeFiles/headers.dir/cmake_clean.cmake
+	cd /home/szzz/bustub/build_rel/third_party/libfort && $(CMAKE_COMMAND) -P CMakeFiles/headers.dir/cmake_clean.cmake
 .PHONY : third_party/libfort/CMakeFiles/headers.dir/clean
 
 third_party/libfort/CMakeFiles/headers.dir/depend:
-	cd /home/szzz/bustub-2023spring/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub-2023spring /home/szzz/bustub-2023spring/third_party/libfort /home/szzz/bustub-2023spring/build_rel /home/szzz/bustub-2023spring/build_rel/third_party/libfort /home/szzz/bustub-2023spring/build_rel/third_party/libfort/CMakeFiles/headers.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/szzz/bustub/build_rel && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/szzz/bustub /home/szzz/bustub/third_party/libfort /home/szzz/bustub/build_rel /home/szzz/bustub/build_rel/third_party/libfort /home/szzz/bustub/build_rel/third_party/libfort/CMakeFiles/headers.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : third_party/libfort/CMakeFiles/headers.dir/depend
 
